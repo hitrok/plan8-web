@@ -29,21 +29,36 @@
 <link rel="icon" type="image/png" href="/plan8logo.png">
 
 <style>
+*{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.8;max-width:720px;margin:0 auto;padding:1rem;word-break:break-word;text-align:center;color:#222}
-header{padding:2rem 1rem 1rem}
-.logo{display:block;width:min(280px,70%);height:auto;margin:0 auto 1rem}
-.tagline{display:block;font-size:.95rem;color:#666;letter-spacing:.05em;margin-top:.5rem}
-h2{font-size:1.15rem;letter-spacing:.08em;border-bottom:1px solid #ddd;display:inline-block;padding-bottom:.3rem;margin-bottom:1rem}
-h3{font-size:1rem;margin:.5rem 0 .3rem}
-dl{display:inline-block;text-align:center}
-dt{font-weight:bold;margin-top:.5rem;color:#555;font-size:.85rem;letter-spacing:.05em}
-dd{margin:0 0 .5rem 0}
-ul{list-style:none;padding:0}
-ul li{margin-bottom:1.2rem}
-ul li p{margin:.2rem 0;color:#555;font-size:.95rem}
-section{margin-bottom:2.5rem}
-footer{margin-top:3rem;padding-top:1rem;border-top:1px solid #eee;color:#999}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.8;max-width:640px;margin:0 auto;padding:2rem 1.25rem 3rem;color:#222;word-break:break-word}
+
+header{text-align:center;padding:1.5rem 0 2.5rem}
+header h1{margin:0;line-height:1}
+.logo{display:block;width:min(260px,70%);height:auto;margin:0 auto}
+.tagline{margin:1rem 0 0;font-size:.9rem;color:#777;letter-spacing:.1em;font-weight:normal}
+
+main{display:block}
+section{margin:0 0 3rem}
+h2{font-size:.95rem;letter-spacing:.2em;color:#888;text-align:center;margin:0 0 1.5rem;font-weight:500}
+h2::before,h2::after{content:"";display:inline-block;width:1.5rem;height:1px;background:#ccc;vertical-align:middle;margin:0 .8rem}
+
+dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:.6rem 1.5rem;max-width:480px;margin-inline:auto}
+dt{margin:0;color:#888;font-size:.85rem;font-weight:normal;letter-spacing:.08em;padding-top:.15rem}
+dd{margin:0;color:#222}
+
+ul{list-style:none;padding:0;margin:0;display:grid;gap:1rem}
+ul li{padding:1.25rem 1.5rem;border:1px solid #eee;border-radius:6px;background:#fafafa}
+ul li h3{margin:0 0 .4rem;font-size:1.05rem;color:#222}
+ul li p{margin:0;color:#555;font-size:.93rem;line-height:1.7}
+
+footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid #eee;text-align:center;color:#aaa;font-size:.85rem}
+
+@media (max-width:480px){
+  dl{grid-template-columns:1fr;gap:.3rem;text-align:center}
+  dt{padding-top:.8rem}
+  h2::before,h2::after{width:1rem;margin:0 .5rem}
+}
 </style>
 
 <!-- Organization 構造化データ -->
@@ -102,10 +117,8 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid #eee;color:#999}
 </head>
 <body>
 <header>
-<h1>
-<img class="logo" src="plan8logo.png" alt="株式会社plan8" width="551" height="184">
-<span class="tagline">プランエイト｜大分県由布市</span>
-</h1>
+<h1><img class="logo" src="plan8logo.png" alt="株式会社plan8" width="551" height="184"></h1>
+<p class="tagline">プランエイト</p>
 </header>
 
 <main>
