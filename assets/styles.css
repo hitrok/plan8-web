@@ -396,7 +396,7 @@
   @media (max-width: 900px) { .founder { grid-template-columns: 1fr; } }
   .portrait {
     aspect-ratio: 3/4;
-    background: url("assets/tsuruoka-opt.jpg") center 20% / cover no-repeat;
+    background: url("tsuruoka-opt.jpg") center 20% / cover no-repeat;
     filter: grayscale(1) contrast(1.02);
     max-height: 520px;
   }
