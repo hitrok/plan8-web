@@ -160,6 +160,14 @@
     filter: grayscale(0) contrast(1);
   }
 
+  /* prevent awkward mid-phrase line breaks on Japanese headings */
+  .detail .body h3 {
+    word-break: keep-all;
+    line-break: strict;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
+  }
+
   /* closing backdrop image */
   .closing.with-bg {
     position: relative;
