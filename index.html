@@ -71,7 +71,19 @@
   }
   @media (max-width: 720px) {
     .section-hero-img { aspect-ratio: 4 / 3; }
-    .section-hero-img .ttl { font-size: 13px; }
+    /* stack cap + ttl vertically so they don't overlap on narrow widths */
+    .section-hero-img .cap {
+      top: clamp(16px, 4vw, 24px);
+      bottom: auto;
+      font-size: 10px;
+    }
+    .section-hero-img .ttl {
+      font-size: 14px;
+      left: clamp(20px, 4vw, 48px);
+      right: auto;
+      text-align: left;
+      max-width: calc(100% - clamp(40px, 8vw, 96px));
+    }
   }
 
   /* challenger examples grid */
