@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>株式会社plan8（プランエイト）| 挑戦するあなたを、ひとりにしない。</title>
-<meta name="description" content="株式会社plan8（プランエイト）は大分県由布市を拠点に、プランB（CINO／Chief Innovation Officer）事業とフリーペーパー「UNFOUND」を手がける企業です。起業家や経営者の挑戦に外部の視点で伴走し、地域と人をつなぎます。代表取締役：鶴岡英明。">
+<meta name="description" content="株式会社plan8（プランエイト）は大分県由布市を拠点に、プランB（CINO／Chief Innovation Officer）事業と挑戦者ストーリーマガジン「UNFOUND」を手がける企業です。起業家や経営者の挑戦に外部の視点で伴走し、地域と人をつなぎます。代表取締役：鶴岡英明。">
 <meta name="robots" content="index,follow">
 <meta name="author" content="株式会社plan8">
 <link rel="canonical" href="https://plan8.jp/">
 
 <meta property="og:title" content="株式会社plan8（プランエイト）| 挑戦するあなたを、ひとりにしない。">
-<meta property="og:description" content="大分県由布市を拠点に、プランB（CINO／Chief Innovation Officer）事業とフリーペーパー「UNFOUND」を手がける企業。起業家や経営者の挑戦に外部の視点で伴走します。">
+<meta property="og:description" content="大分県由布市を拠点に、プランB（CINO／Chief Innovation Officer）事業と挑戦者ストーリーマガジン「UNFOUND」を手がける企業。起業家や経営者の挑戦に外部の視点で伴走します。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://plan8.jp/">
 <meta property="og:site_name" content="株式会社plan8">
@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="株式会社plan8">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="株式会社plan8（プランエイト）| 挑戦するあなたを、ひとりにしない。">
-<meta name="twitter:description" content="大分県由布市を拠点に、プランB（CINO／Chief Innovation Officer）事業とフリーペーパー「UNFOUND」を手がける企業。">
+<meta name="twitter:description" content="大分県由布市を拠点に、プランB（CINO／Chief Innovation Officer）事業と挑戦者ストーリーマガジン「UNFOUND」を手がける企業。">
 <meta name="twitter:image" content="https://plan8.jp/assets/og-image.png">
 
 <link rel="icon" type="image/png" href="assets/plan8-black.png">
@@ -28,9 +28,158 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap">
 <link rel="stylesheet" href="assets/styles.css">
+
+<style>
+  /* ============ index2 additions: photo treatments ============ */
+  .section-hero-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    overflow: hidden;
+    margin-bottom: clamp(56px, 7vw, 96px);
+    background: #111;
+  }
+  .section-hero-img img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.55) contrast(0.95) brightness(0.92);
+  }
+  .section-hero-img.h-unfound img { object-position: 50% 38%; }
+  .section-hero-img.h-cino    img { object-position: 50% 36%; }
+  .section-hero-img .cap {
+    position: absolute;
+    left: clamp(20px, 4vw, 48px);
+    bottom: clamp(20px, 3vw, 36px);
+    color: #fff;
+    font-size: clamp(11px, 1vw, 12px);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    opacity: 0.82;
+  }
+  .section-hero-img .ttl {
+    position: absolute;
+    right: clamp(20px, 4vw, 48px);
+    bottom: clamp(20px, 3vw, 36px);
+    color: #fff;
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(16px, 1.6vw, 20px);
+    letter-spacing: 0.12em;
+    line-height: 1.7;
+    text-align: right;
+    opacity: 0.94;
+  }
+  @media (max-width: 720px) {
+    .section-hero-img { aspect-ratio: 4 / 3; }
+    .section-hero-img .ttl { font-size: 13px; }
+  }
+
+  /* challenger examples grid */
+  .challenger-grid {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 600px) { .challenger-grid { grid-template-columns: 1fr; } }
+  .challenger {
+    background: var(--bg);
+    display: flex; flex-direction: column;
+    margin: 0;
+  }
+  .challenger .ph {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    position: relative;
+    background: #f4f4f4;
+  }
+  .challenger .ph img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.45) contrast(0.97);
+    transition: transform 1.2s cubic-bezier(.2,.7,.2,1), filter .8s;
+  }
+  .challenger:hover .ph img {
+    transform: scale(1.04);
+    filter: grayscale(0) contrast(1);
+  }
+  .challenger figcaption {
+    padding: clamp(20px, 2.5vw, 28px) clamp(20px, 2.5vw, 28px) clamp(24px, 3vw, 32px);
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .challenger .cat {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: var(--muted);
+  }
+  .challenger .ttl {
+    font-size: clamp(15px, 1.4vw, 17px);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .detail .body .challenger figcaption p {
+    font-size: 12px;
+    line-height: 2;
+    color: var(--ink-soft);
+    margin-bottom: 0;
+    max-width: none;
+  }
+
+  /* per-image focal points (cropping via object-position) */
+  .challenger.c-entrepreneur .ph img { object-position: 30% 35%; }
+  .challenger.c-community .ph img    { object-position: 30% 40%; }
+  .challenger.c-onground .ph img     { object-position: 50% 38%; }
+  .challenger.c-young .ph img        { object-position: 50% 35%; }
+  .unfound-hero-img img              { object-position: 50% 42%; }
+
+  /* business cell — visual accent (subtle thumb) */
+  .biz-cell .biz-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    overflow: hidden;
+    margin-bottom: 4px;
+    background: #f4f4f4;
+    position: relative;
+  }
+  .biz-cell .biz-thumb img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.4) contrast(0.97);
+    transition: transform 1s cubic-bezier(.2,.7,.2,1), filter .8s;
+  }
+  .biz-cell .biz-thumb.t-unfound img { object-position: 50% 32%; }
+  .biz-cell .biz-thumb.t-cino    img { object-position: 50% 38%; }
+  .biz-cell:hover .biz-thumb img {
+    transform: scale(1.03);
+    filter: grayscale(0) contrast(1);
+  }
+
+  /* closing backdrop image */
+  .closing.with-bg {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .closing.with-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url('assets/p1.jpg');
+    background-size: cover;
+    background-position: center 60%;
+    filter: grayscale(0.7) contrast(0.9) brightness(0.9);
+    opacity: 0.10;
+    z-index: -1;
+  }
+</style>
 </head>
 
-<body data-screen-label="plan8 mono home">
+<body data-screen-label="plan8 mono home v2">
 
 <nav class="top">
   <div class="inner">
@@ -94,22 +243,32 @@
 <section id="business" data-screen-label="03 business">
   <div class="s-head reveal">
     <h2>事業<span class="sm">Business</span></h2>
-    <p class="desc">plan8 は、ふたつの事業で挑戦者のとなりに立ちます。<br>ひとつは、まだ知られていない挑戦者の想いを世に届けるメディア。<br>もうひとつは、経営者の横で決断を分かち合う伴走。</p>
+    <p class="desc">plan8 は、ふたつの事業で挑戦者のとなりに立ちます。<br>ひとつは、まだ知られていない挑戦者のストーリーを世に届けるメディア。<br>もうひとつは、経営者の横で決断を分かち合う伴走。</p>
   </div>
 
   <div class="biz-grid reveal">
     <a class="biz-cell" href="#unfound">
-      <span class="tag">01 — Local Event Magazine</span>
+      <div class="biz-thumb t-unfound"><img src="assets/p5.jpg" alt="挑戦する子ども" loading="lazy"></div>
+      <span class="tag">01 — Challenger Story Magazine</span>
       <span class="big">UNFOUND</span>
-      <span class="lede">まだ知られていない挑戦者の想いを、世に届ける。</span>
-      <p>直近3か月のイベント情報に、主催者のビジョン・背景・計画まで束ねた季刊フリーペーパー。読み手には「応援したくなる読み物」、企業には「共創先のカタログ」として、ひとつの誌面をふたつの顔で機能させます。</p>
+      <span class="lede">まだ知られていない挑戦者の物語を、世に届ける。</span>
+      <p>起業家、経営者、社内の新規事業担当者、イベント主催者、自治会長、放課後に挑むスポーツ少年、コミュニティを束ねるリーダー、現場で日々を積み重ねる職人や働き手 —<br>
+年齢も立場も規模も問わず、その挑戦のストーリーを束ねた季刊フリーペーパー。<br>
+誌面の主役は肩書きではなく、いまその人が向き合っている挑戦そのもの。<br>
+背景にある想い・軌跡・これからの計画まで丁寧に取材し、読み手には「応援したくなる読み物」、企業には「共創候補のカタログ」として届けます。<br>
+ひとつの誌面で、地域の挑戦と社会の応援を結び直していきます。</p>
       <span class="go">詳細 →</span>
     </a>
     <a class="biz-cell" href="#cino">
+      <div class="biz-thumb t-cino"><img src="assets/pb1.jpg" alt="経営者ととなりに立つ" loading="lazy"></div>
       <span class="tag">02 — Chief Innovation Officer</span>
       <span class="big">プランB</span>
       <span class="lede">あなたの会社の「変革担当責任者」を、plan8 が担う。</span>
-      <p>新規事業・既存事業の変革・AI 活用・M&amp;A・資金調達・マーケティング — 点ではなく、経営視点でまるごと。知識だけではなく、実際にリスクを取って経験してきた当事者として、同じ視点でチームになります。</p>
+      <p>新規事業の企画、既存事業の変革と効率化、AI・テクノロジーの活用、M&amp;A・業務提携・共創、資金調達と運用、マーケティング、経営者へのメンタリング —<br>
+点ではなく、経営視点でまるごと寄り添う、外部の変革担当責任者です。<br>
+知識だけでなく、自分自身でリスクを取って経験してきた当事者として、失敗も含めて、同じ目線でチームになります。<br>
+中小企業の経営者の右腕として、大企業の事業企画メンバーとして、スタートアップの顧問として — 立場や規模を問わず、<br>
+ひとりで考える時間を、チームで考える時間に変えていきます。</p>
       <span class="go">詳細 →</span>
     </a>
   </div>
@@ -118,25 +277,82 @@
 <!-- ============ UNFOUND DETAIL ============ -->
 <section id="unfound" data-screen-label="04 unfound">
   <div class="s-head reveal">
-    <h2>UNFOUND<span class="sm">まだ知られていない挑戦者の想いを、世に届ける</span></h2>
+    <h2>UNFOUND<span class="sm">挑戦者のストーリーを、世に届ける</span></h2>
+  </div>
+
+  <!-- visual hero -->
+  <div class="section-hero-img h-unfound reveal" aria-hidden="true">
+    <img src="assets/p1.jpg" alt="">
+    <span class="cap">UNFOUND — Issue 01</span>
+    <span class="ttl">挑戦は、すぐ近くにある。</span>
   </div>
 
   <div class="detail reveal">
     <span class="label">概要</span>
     <div class="body">
-      <h3>UNFOUND は、地域のイベント情報誌です。</h3>
-      <p>直近3か月分の地域イベントをまとめた、季刊のフリーペーパー。まずは「いつ、どこで、何が行われるか」がひと目でわかる、地域の生活者のための情報誌です。</p>
-      <p>そのうえで、ただのイベント情報誌にはしません。主催者の想い・背景・これまでの軌跡・これからの計画まで丁寧に束ねることで、読んだ方が「行ってみたい」だけでなく「応援したい」と感じられる誌面をつくります。</p>
-      <p>誌名の UNFOUND は「まだ見つかっていない」という意味の英語。地域で挑戦している人は、まだ世に見つかっていないだけで、確かにそこにいる。その存在を、誌面を通じて見つけ出していきます。</p>
+      <h3>UNFOUND は、挑戦者のストーリーを伝えるマガジンです。</h3>
+      <p>UNFOUND は、地域に生きる挑戦者ひとりひとりの物語を束ねた、季刊のフリーペーパー。誌面の主役は、肩書きや会社の規模ではなく、その人が「いま、なにに挑んでいるのか」です。</p>
+      <p>たとえば、新しい事業を立ち上げる起業家。次の柱を育てようとする経営者。社内で新規事業を背負う担当者。あるいは、街でイベントを主催する人や、現場で日々を積み重ねる働き手たち。社会人にかぎりません。地域を引っ張る自治会長、放課後に夢中になる子ども、コミュニティを束ねるリーダー、勝負のなかで自分を更新するスポーツ選手 — 年齢も、立場も、規模も問いません。挑戦している、そのことだけが共通点です。</p>
+      <p>大切にしているのは、その挑戦の背景にある想い・これまでの軌跡・これからの計画まで丁寧に束ねること。読んだ方が「会いに行きたい」「応援したい」と感じられる誌面をつくります。</p>
+      <p>誌名の UNFOUND は「まだ見つかっていない」という意味の英語。挑戦している人は、まだ世に見つかっていないだけで、確かにそこにいる。その存在を、誌面を通じて見つけ出していきます。</p>
       <p>刷り上がった冊子は、地域のお家のポストまでお届けします。</p>
+    </div>
+  </div>
+
+  <!-- challenger examples -->
+  <div class="detail reveal">
+    <span class="label">挑戦者の例</span>
+    <div class="body">
+      <h3>「挑戦者」に、決まった肩書きはない。</h3>
+      <p>UNFOUND が伝えたい挑戦者は、ひとつの肩書きには収まりません。これから誌面で取り上げていく方々の、ほんの一例です。</p>
+
+      <div class="challenger-grid">
+        <figure class="challenger c-entrepreneur">
+          <div class="ph"><img src="assets/p2.jpg" alt="起業家のピッチ" loading="lazy"></div>
+          <figcaption>
+            <span class="cat">FOUNDERS &amp; EXECUTIVES</span>
+            <span class="ttl">起業家・経営者・新規事業担当者</span>
+            <p>一からビジネスを立ち上げる人。次の柱を育てようとする経営者。社内で新しい挑戦を背負う事業企画の担当者。</p>
+          </figcaption>
+        </figure>
+
+        <figure class="challenger c-community">
+          <div class="ph"><img src="assets/p3.jpg" alt="地域を引っ張る自治会長" loading="lazy"></div>
+          <figcaption>
+            <span class="cat">COMMUNITY</span>
+            <span class="ttl">自治会長・コミュニティリーダー</span>
+            <p>祭りや町内会、地域の任意団体。世代を超えて、街の関係を結び直していく人。文化や暮らしの担い手たち。</p>
+          </figcaption>
+        </figure>
+
+        <figure class="challenger c-onground">
+          <div class="ph"><img src="assets/p4.jpg" alt="現場で挑戦する人" loading="lazy"></div>
+          <figcaption>
+            <span class="cat">ON THE GROUND</span>
+            <span class="ttl">イベント主催者・現場で挑戦する人</span>
+            <p>マルシェ、ワークショップ、ライブ、フェス。手を動かしながら、場と関係をつくっていく挑戦者たち。</p>
+          </figcaption>
+        </figure>
+
+        <figure class="challenger c-young">
+          <div class="ph"><img src="assets/p5.jpg" alt="チャレンジする子ども" loading="lazy"></div>
+          <figcaption>
+            <span class="cat">NEXT GENERATION</span>
+            <span class="ttl">スポーツ選手・チャレンジする子ども</span>
+            <p>勝ち負けの先で、昨日の自分を更新していく人。年齢に関係なく、挑戦は同じ重さを持つ。</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <p style="margin-top:28px; font-size:13px; line-height:2; color:var(--ink-soft);">このほかにも、表現者・職人・研究者・福祉や教育の現場で動く方々など、地域でなにかに挑む人ならどなたでも誌面の主役になり得ます。「この人を取り上げてほしい」というご推薦も歓迎しています。</p>
     </div>
   </div>
 
   <div class="detail reveal">
     <span class="label">ふたつの顔</span>
     <div class="body">
-      <h3>イベント情報誌としての顔。協賛カタログとしての顔。</h3>
-      <p>生活者にとっては地域のイベント情報を深く知ることができる読み物として。企業にとっては協賛・協業候補の挑戦者を探すことができるカタログとして。ひとつの誌面が、ふたつの役割を同時に果たします。</p>
+      <h3>挑戦者ストーリー誌としての顔。協賛カタログとしての顔。</h3>
+      <p>生活者にとっては地域の挑戦者を深く知ることができる読み物として。企業にとっては協賛・協業候補の挑戦者を探すことができるカタログとして。ひとつの誌面が、ふたつの役割を同時に果たします。</p>
     </div>
   </div>
 
@@ -166,17 +382,17 @@
     </div>
   </div>
 
-  <!-- event host CTA -->
+  <!-- challenger CTA (was: event host CTA) -->
   <div class="detail reveal" id="unfound-host">
-    <span class="label">主催者の方へ</span>
+    <span class="label">挑戦者の方へ</span>
     <div class="body">
-      <h3>イベントを主催されようとしている方へ。</h3>
-      <p><b style="color:var(--ink); font-weight:500;">イベントを主催される方は、街にとってもっとも身近な挑戦者です。</b>UNFOUND は、その想い・背景・軌跡を丁寧に束ねる誌面。単なる告知ではなく、読み手が「応援したい」と感じる文脈ごとイベントを届けます。<b style="color:var(--ink); font-weight:500;">取材も掲載も、すべて無料です。</b>主催者の方に費用のご負担をいただくことはありませんので、どうぞお気軽にお問い合わせください。</p>
+      <h3>いま、なにかに挑んでいる方へ。</h3>
+      <p><b style="color:var(--ink); font-weight:500;">挑戦している方は、街にとってもっとも身近な希望です。</b>UNFOUND は、その想い・背景・軌跡を丁寧に束ねる誌面。単なる紹介ではなく、読み手が「応援したい」と感じる文脈ごと、あなたのストーリーを届けます。<b style="color:var(--ink); font-weight:500;">取材も掲載も、すべて無料です。</b>挑戦している方ご本人にも、ご家族・チーム・関係者にも、費用のご負担をいただくことはありません。どうぞお気軽にお問い合わせください。</p>
 
       <div class="cta soft" style="margin-top:28px;">
         <div>
-          <div class="eyebrow">FOR EVENT ORGANIZERS</div>
-          <h4>あなたのイベントを、<br>読み物として届けませんか。</h4>
+          <div class="eyebrow">FOR CHALLENGERS</div>
+          <h4>あなたの挑戦を、<br>読み物として届けませんか。</h4>
           <p>取材・掲載はすべて無料です。編集は plan8 が担当します。次号の掲載締切・取材日程についてはお問い合わせください。</p>
         </div>
         <a class="cta-btn" href="https://forms.gle/iiNUPS5uJonhAuGN6" target="_blank" rel="noopener noreferrer">
@@ -184,10 +400,10 @@
         </a>
       </div>
 
-      <p style="margin-top:32px; font-size:13px; line-height:2; color:var(--ink-soft);"><b style="color:var(--ink); font-weight:500;">「このイベント・挑戦者を取り上げてほしい」という推薦も歓迎です。</b>ご自身のイベントでなくても、周りで応援したい主催者・挑戦者がいれば、推薦フォームから教えてください。</p>
+      <p style="margin-top:32px; font-size:13px; line-height:2; color:var(--ink-soft);"><b style="color:var(--ink); font-weight:500;">「この人・この挑戦を取り上げてほしい」という推薦も歓迎です。</b>ご自身の挑戦でなくても、周りで応援したい挑戦者がいれば、推薦フォームから教えてください。子どもの挑戦、ご近所の取り組み、所属チームの仲間 — どなたのご推薦も大歓迎です。</p>
       <div style="margin-top:16px;">
         <a class="cta-btn" href="https://forms.gle/pc8m1UojEjZFoP5M8" target="_blank" rel="noopener noreferrer" style="display:inline-flex;">
-          取材対象者を推薦する<span aria-hidden="true">→</span>
+          挑戦者を推薦する<span aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -198,7 +414,7 @@
     <span class="label">スポンサー獲得支援</span>
     <div class="body">
       <h3>スポンサー獲得そのものも、<br>plan8 がお手伝いします。</h3>
-      <p>UNFOUND への掲載だけでなく、<b style="color:var(--ink); font-weight:500;">イベント主催者のスポンサー獲得そのもの</b>も、plan8 が併走します。どの企業にどう声をかけると接点が生まれやすいのか、過去の協賛実績をもとに、相性の良い候補先を一緒にリストアップし、打診の進め方までご相談に乗ります。</p>
+      <p>UNFOUND への掲載だけでなく、<b style="color:var(--ink); font-weight:500;">挑戦者・イベント主催者のスポンサー獲得そのもの</b>も、plan8 が併走します。どの企業にどう声をかけると接点が生まれやすいのか、過去の協賛実績をもとに、相性の良い候補先を一緒にリストアップし、打診の進め方までご相談に乗ります。</p>
       <p>それができる理由は、わたしたち自身が <b style="color:var(--ink); font-weight:500;">大分県における過去30年分の協賛データ</b> を保有しているからです。どの企業が、どのイベントに、どれくらい協賛してきたか — 約 <b style="color:var(--ink); font-weight:500;">7万レコード／1万社のスポンサー企業</b> に及ぶ履歴を、独自のデータベースとして蓄積しています。</p>
 
       <div class="figs">
@@ -219,9 +435,9 @@
         </div>
       </div>
 
-      <p style="margin-top:28px; font-size:13px; line-height:2; color:var(--ink-soft);">「このテーマのイベントに、過去10年で協賛してきた企業はどこか」「業種ごとの協賛傾向はどうか」といった問いにも、データで答えられます。主催者の方のスポンサー獲得を、勘と人脈だけに頼らない形で支えていきます。</p>
+      <p style="margin-top:28px; font-size:13px; line-height:2; color:var(--ink-soft);">「このテーマの挑戦に、過去10年で協賛してきた企業はどこか」「業種ごとの協賛傾向はどうか」といった問いにも、データで答えられます。挑戦者のスポンサー獲得を、勘と人脈だけに頼らない形で支えていきます。</p>
 
-      <p style="margin-top:20px; font-size:13px; line-height:2; color:var(--ink-soft);"><b style="color:var(--ink); font-weight:500;">大分県以外の地域のイベントについても、スポンサー獲得のご相談を承ります。</b>各地域の協賛データをもとに、相性の良い候補先の洗い出し・打診の設計までお手伝いすることが可能です。ご興味のある主催者・自治体・地域団体の方は、お気軽にご照会・お問い合わせください。</p>
+      <p style="margin-top:20px; font-size:13px; line-height:2; color:var(--ink-soft);"><b style="color:var(--ink); font-weight:500;">大分県以外の地域の挑戦者・イベントについても、スポンサー獲得のご相談を承ります。</b>各地域の協賛データをもとに、相性の良い候補先の洗い出し・打診の設計までお手伝いすることが可能です。ご興味のある主催者・自治体・地域団体の方は、お気軽にお問い合わせください。</p>
 
       <div style="margin-top:24px;">
         <a class="cta-btn" href="https://forms.gle/Ja8Xbh3mZ13YK1Vm6" target="_blank" rel="noopener noreferrer" style="display:inline-flex;">
@@ -250,9 +466,9 @@
           <span class="nt">家族内まわし読み（×1.8）を加味</span>
         </div>
         <div class="cell">
-          <span class="k">Events per Issue</span>
+          <span class="k">Stories per Issue</span>
           <span class="v">30<small>～40 件掲載</small></span>
-          <span class="nt">1号あたりの掲載イベント数</span>
+          <span class="nt">1号あたりの挑戦者ストーリー数</span>
         </div>
         <div class="cell">
           <span class="k">Measurement</span>
@@ -304,6 +520,13 @@
 <section id="cino" data-screen-label="05 プランB">
   <div class="s-head reveal">
     <h2>プランB<span class="sm">あなたの会社の Chief Innovation Officer を、plan8 が担う</span></h2>
+  </div>
+
+  <!-- visual hero -->
+  <div class="section-hero-img h-cino reveal" aria-hidden="true">
+    <img src="assets/pb1.jpg" alt="">
+    <span class="cap">プランB — for Founders &amp; Executives</span>
+    <span class="ttl">ひとりで考える時間を、<br>チームの時間に。</span>
   </div>
 
   <div class="detail reveal">
@@ -460,7 +683,7 @@
       <dt>連絡先</dt>
       <dd><a href="https://forms.gle/Ja8Xbh3mZ13YK1Vm6" target="_blank" rel="noopener noreferrer">お問い合わせフォーム</a></dd>
       <dt>事業内容</dt>
-      <dd>地域フリーペーパー「UNFOUND」／ 変革担当責任者「プランB」</dd>
+      <dd>挑戦者ストーリーマガジン「UNFOUND」／ 変革担当責任者「プランB」</dd>
       <dt>判断の軸</dt>
       <dd>公平 ・ 公正 ・ 公益</dd>
     </dl>
@@ -471,7 +694,7 @@
 <section id="partners" data-screen-label="07.5 partners">
   <div class="s-head reveal">
     <h2>アライアンスプランナー<span class="sm">Alliance Planners</span></h2>
-    <p class="desc">plan8 のとなりには、それぞれの領域で挑戦者を支える外部パートナーたちがいます。ひとりでは届かない場所へ、つながりでご一緒します。<br>アライアンスプランナーは、フリーペーパー「UNFOUND」にも毎号掲載され、地域の読者からも見つけていただける存在となります。</p>
+    <p class="desc">plan8 のとなりには、それぞれの領域で挑戦者を支える外部パートナーたちがいます。ひとりでは届かない場所へ、つながりでご一緒します。<br>アライアンスプランナーは、挑戦者ストーリーマガジン「UNFOUND」にも毎号掲載され、地域の読者からも見つけていただける存在となります。</p>
   </div>
 
   <div class="partners-grid reveal" style="display:block;">
@@ -481,53 +704,6 @@
       <p style="font-size:13px; line-height:2; color:var(--ink-soft); max-width: 56ch; margin: 0 auto;">現在、初号掲載に向けた取材・編集を進めています。順次ご紹介していく予定です。アライアンスプランナーとしての参画にご関心のある方は、下記よりお気軽にご連絡ください。</p>
     </div>
   </div>
-
-  <!--
-  <div class="partners-grid reveal">
-    <div class="partner">
-      <div class="photo"><img src="assets/shimayama.png" alt="嶋山 哲史"></div>
-      <span class="co">株式会社 Uca</span>
-      <span class="name">嶋山 哲史<span style="font-size:11px; color:var(--muted); margin-left:8px; letter-spacing:0.1em;">代表取締役</span></span>
-      <span class="role">ブランディング / 編集</span>
-      <p class="can">企業と事業の「ことば」を整えます。UNFOUND のブランド編集・コピーを担当。</p>
-    </div>
-    <div class="partner">
-      <div class="photo"><img src="assets/ienaga.png" alt="家長 真大"></div>
-      <span class="co">株式会社 SHIP</span>
-      <span class="name">家長 真大<span style="font-size:11px; color:var(--muted); margin-left:8px; letter-spacing:0.1em;">代表取締役</span></span>
-      <span class="role">ソフトウェア開発</span>
-      <p class="can">「開発」と「デザイン」を通じて、グローバルに価値提供を行います。</p>
-    </div>
-    <div class="partner">
-      <div class="photo" data-initial="T"></div>
-      <span class="co">フリーランス</span>
-      <span class="name">田中 遼</span>
-      <span class="role">AI / 自動化実装</span>
-      <p class="can">少人数経営のための AI ワークフロー設計と実装。LLM・RPA・データ基盤。</p>
-    </div>
-    <div class="partner">
-      <div class="photo" data-initial="Y"></div>
-      <span class="co">株式会社 ノルト</span>
-      <span class="name">山田 美咲</span>
-      <span class="role">組織 / 人事</span>
-      <p class="can">組織設計と採用戦略、評価制度の導入支援。はじめての人事部門もご一緒に。</p>
-    </div>
-    <div class="partner">
-      <div class="photo" data-initial="K"></div>
-      <span class="co">九州共創法律事務所</span>
-      <span class="name">小林 哲也</span>
-      <span class="role">法務 / M&A</span>
-      <p class="can">契約・知財・労務、M&A・資本提携まわりの法務サポートを行います。</p>
-    </div>
-    <div class="partner">
-      <div class="photo" data-initial="M"></div>
-      <span class="co">株式会社 ヒナタ</span>
-      <span class="name">松本 優</span>
-      <span class="role">マーケティング / PR</span>
-      <p class="can">初期 PR とデジタル広告運用、地方×全国のメディアリレーション。</p>
-    </div>
-  </div>
-  -->
 
   <div class="alliance-cta reveal">
     <div>
@@ -542,7 +718,7 @@
 </section>
 
 <!-- ============ CLOSING ============ -->
-<section id="contact" class="closing full" data-screen-label="08 closing">
+<section id="contact" class="closing full with-bg" data-screen-label="08 closing">
   <div class="wrap">
     <div class="lede reveal">
       あなたの挑戦を、<br>
