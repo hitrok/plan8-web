@@ -94,7 +94,7 @@
 
 <style>
   :root {
-    --bg: #FFFBF2;
+    --bg: #FFFFFF;
     --bg-soft: #FFF6E0;
     --ink: #1B1B1F;
     --ink-soft: #404048;
@@ -148,7 +148,7 @@
   nav.top {
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 100;
-    background: rgba(255, 251, 242, 0.92);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(12px);
     border-bottom: 2px solid var(--ink);
   }
@@ -267,9 +267,9 @@
   .hero .eyebrow {
     display: inline-block;
     font-family: 'LINE Seed JP', sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.16em;
     color: var(--muted);
     margin-bottom: 28px;
   }
@@ -842,8 +842,8 @@
   @media (max-width: 860px) { .point-list { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 480px) { .point-list { grid-template-columns: 1fr; } }
   .point-item {
-    background: rgba(255,251,242,0.08);
-    border: 1px solid rgba(255,251,242,0.18);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
     border-radius: var(--radius);
     padding: 18px 20px;
     color: var(--bg);
@@ -888,19 +888,25 @@
     margin-bottom: 8px;
   }
   .figs .f .v {
-    display: block;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
     font-family: 'LINE Seed JP', sans-serif;
-    font-size: clamp(28px, 4vw, 44px);
+    font-size: clamp(26px, 3.4vw, 40px);
     font-weight: 800;
     color: var(--ink);
     line-height: 1.05;
+    letter-spacing: -0.01em;
   }
   .figs .f .v small {
     font-family: 'LINE Seed JP', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     color: var(--ink-soft);
-    margin-left: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   .figs .f .nt {
     display: block;
@@ -937,15 +943,27 @@
     font-size: 10px; font-weight: 700; letter-spacing: 0.22em; color: var(--muted);
   }
   .ad-data .v {
-    display: block;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
     margin-top: 8px;
     font-family: 'LINE Seed JP', sans-serif;
-    font-size: clamp(24px, 3vw, 32px);
+    font-size: clamp(22px, 2.6vw, 30px);
     font-weight: 800;
     line-height: 1.15;
     color: var(--ink);
+    letter-spacing: -0.01em;
   }
-  .ad-data .v small { font-family: 'LINE Seed JP', sans-serif; font-size: 0.4em; font-weight: 700; margin-left: 4px; color: var(--ink-soft); }
+  .ad-data .v small {
+    font-family: 'LINE Seed JP', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
   .ad-data .nt { display: block; margin-top: 8px; font-size: 12px; font-weight: 500; line-height: 1.7; color: var(--ink-soft); }
 
   /* readership wrap */
@@ -1438,7 +1456,7 @@
   .closing .reach {
     margin-top: 56px;
     padding-top: 28px;
-    border-top: 2px dashed rgba(255,251,242,0.2);
+    border-top: 2px dashed rgba(255,255,255,0.2);
     display: flex; flex-wrap: wrap; gap: 18px;
   }
   .closing .reach a {
@@ -1545,19 +1563,19 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" data-screen-label="01 hero">
-  <span class="eyebrow">PLAN8 INC. ／ SINCE 2026</span>
+  <span class="eyebrow">plan8 inc. / since 2026</span>
 
   <h1>
     挑戦する人の、<br>
     <span class="accent">となりに立つ。</span>
   </h1>
   <p class="sub">
-    大分・由布から、世界の挑戦者のとなりへ。<br>
-    <b>挑戦者の「推し活」を支援する</b>会社です。
+    plan8 は、老若男女だれもが<br>
+    <b class="mk">迷いなく一歩を踏み出せる</b>社会をつくります。
   </p>
 
   <div class="actions">
-    <a class="btn primary" href="#concept">わたしたちの事業 <span class="arr">→</span></a>
+    <a class="btn primary" href="#innovation">わたしたちの思い <span class="arr">→</span></a>
     <a class="btn yellow" href="#contact">話してみる <span class="arr">→</span></a>
   </div>
 
@@ -1670,7 +1688,7 @@
       <span class="lede">挑戦者と支援者の間に立つ、経営パートナー。</span>
       <p>
         新規事業／既存事業の変革／AI・テクノロジー活用／M&amp;A・資金調達／マーケティング／メンタリング —
-        点ではなく<b>経営視点でまるごと寄り添う</b>、外部の変革担当責任者です。<b>月額5万円〜（平均20万円）</b>から。
+        点ではなく<b>経営視点でまるごと寄り添う</b>、外部の変革担当責任者です。<b>月額5万円〜</b>。
       </p>
       <span class="go">プランB を見る →</span>
     </a>
@@ -1752,97 +1770,6 @@
     </div>
   </div>
 
-  <!-- ふたつの顔 -->
-  <div class="detail reveal">
-    <span class="label">ふたつの顔</span>
-    <div class="body">
-      <h3>挑戦者ストーリー誌として。<br>協賛カタログとして。</h3>
-      <p><b>生活者にとっては</b>、地域の挑戦者を深く知り、心から応援できる読み物。<b>企業にとっては</b>、共創・協賛先を探すことができるカタログ。ひとつの誌面が、ふたつの役割を同時に果たします。</p>
-      <p style="font-size:14px; color:var(--ink-soft);"><b style="color:var(--ink);">季刊（年4回）発行</b> ／ <b style="color:var(--ink);">フリーペーパー（生活者は無料）</b> ／ <b style="color:var(--ink);">挑戦者の掲載も無料（協賛で成立）</b></p>
-    </div>
-  </div>
-
-  <!-- 推し活モデル -->
-  <div class="detail reveal">
-    <span class="label pink">推し活モデル</span>
-    <div class="body">
-      <h3>応援したい気持ちを、<br><span class="mk">「推し活」</span>として仕組みにする。</h3>
-      <p>UNFOUND の発行を支えるのは、<b>挑戦者を応援したい人たち（=スポンサー会員）</b>です。企業・個人が会員として参加し、毎月の会費が「推し活ポイント」として届きます。ポイントで挑戦者を応援する、新しいスポンサーシップのかたちです。</p>
-
-      <div class="member-block">
-        <span class="eyebrow">★ MEMBERSHIP</span>
-        <h3>一口 <span class="em">980円／月</span> から、<br>挑戦者を「推す」会員に。</h3>
-        <p>企業・個人が会員として参加し、毎月のポイントで挑戦者を応援する仕組み。<b>推した会員のロゴは、UNFOUND の誌面・WEB に掲載</b>されます。応援を可視化し、挑戦者と支援者の関係を、長く続く関係に変えていきます。</p>
-
-        <div class="price-cards">
-          <div class="price-card k1">
-            <span class="ptag">INDIVIDUAL</span>
-            <div class="pname">個人会員</div>
-            <div class="pprice">980<span class="yen">円</span><span class="per">／月・1口〜</span></div>
-            <p class="pnote">1口から参加可能。1口=1ポイント／月で挑戦者を推せる、新しい応援のかたち。</p>
-          </div>
-          <div class="price-card k2">
-            <span class="ptag">CORPORATE</span>
-            <div class="pname">法人会員</div>
-            <div class="pprice">9,800<span class="yen">円</span><span class="per">／月・10口〜</span></div>
-            <p class="pnote">最低10口（10口単位で増減）から。社のロゴが UNFOUND 誌面・WEB に掲載されます。</p>
-          </div>
-        </div>
-
-        <div class="point-list">
-          <div class="point-item">
-            <div class="pi-num">P-01</div>
-            <div class="pi-name">記事掲載の<br>推し投票</div>
-          </div>
-          <div class="point-item">
-            <div class="pi-num">P-02</div>
-            <div class="pi-name">次の取材先の<br>推薦</div>
-          </div>
-          <div class="point-item">
-            <div class="pi-num">P-03</div>
-            <div class="pi-name">挑戦者への<br>応援メッセージ</div>
-          </div>
-          <div class="point-item">
-            <div class="pi-num">P-04</div>
-            <div class="pi-name">推した会員のロゴ<br>を記事に掲載</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 市場 -->
-  <div class="detail reveal">
-    <span class="label">市場</span>
-    <div class="body">
-      <h3>スポンサー市場は、<span class="mk">8,500億円</span>。</h3>
-      <p>わたしたちが楽しむイベント、スポーツ、音楽、カンファレンス — その多くは、スポンサー資金で支えられています。意外なほど大きな器が、身近な挑戦を下支えしています。</p>
-
-      <div class="figs">
-        <div class="f c1">
-          <span class="k">SPONSORSHIP</span>
-          <span class="v">8,500<small>億円</small></span>
-          <span class="nt">国内スポンサー市場・2024年推計</span>
-        </div>
-        <div class="f c2">
-          <span class="k">VC INVESTMENT</span>
-          <span class="v">7,800<small>億円</small></span>
-          <span class="nt">国内スタートアップ投資（参考）</span>
-        </div>
-        <div class="f c3">
-          <span class="k">GLOBAL</span>
-          <span class="v">約30<small>兆円</small></span>
-          <span class="nt">世界市場・2024年</span>
-        </div>
-        <div class="f c4">
-          <span class="k">DATABASE</span>
-          <span class="v">7<small>万レコード</small></span>
-          <span class="nt">大分県・過去30年分の協賛履歴</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- challenger CTA -->
   <div class="detail reveal" id="unfound-host">
     <span class="label red">挑戦者の方へ</span>
@@ -1906,24 +1833,73 @@
     </div>
   </div>
 
+  <!-- ふたつの顔 -->
+  <div class="detail reveal">
+    <span class="label">ふたつの顔</span>
+    <div class="body">
+      <h3>挑戦者ストーリー誌として。<br>協賛カタログとして。</h3>
+      <p><b>生活者にとっては</b>、地域の挑戦者を深く知り、心から応援できる読み物。<b>企業にとっては</b>、共創・協賛先を探すことができるカタログ。ひとつの誌面が、ふたつの役割を同時に果たします。</p>
+      <p style="font-size:14px; color:var(--ink-soft);"><b style="color:var(--ink);">季刊（年4回）発行</b> ／ <b style="color:var(--ink);">フリーペーパー（生活者は無料）</b> ／ <b style="color:var(--ink);">挑戦者の掲載も無料（協賛で成立）</b></p>
+    </div>
+  </div>
+
+  <!-- 推し活モデル -->
+  <div class="detail reveal">
+    <span class="label pink">推し活モデル</span>
+    <div class="body">
+      <h3>応援したい気持ちを、<br><span class="mk">「推し活」</span>として仕組みにする。</h3>
+      <p>UNFOUND の発行を支えるのは、<b>挑戦者を応援したい人たち（=スポンサー会員）</b>です。企業・個人が会員として参加し、毎月の会費が「推し活ポイント」として届きます。ポイントで挑戦者を応援する、新しいスポンサーシップのかたちです。</p>
+
+      <div class="member-block">
+        <span class="eyebrow">★ MEMBERSHIP</span>
+        <h3>一口 <span class="em">980円／月</span> から、<br>挑戦者を「推す」会員に。</h3>
+        <p>企業・個人が会員として参加し、毎月のポイントで挑戦者を応援する仕組み。<b>推した会員のロゴは、UNFOUND の誌面・WEB に掲載</b>されます。応援を可視化し、挑戦者と支援者の関係を、長く続く関係に変えていきます。</p>
+
+        <div class="price-cards">
+          <div class="price-card k1">
+            <span class="ptag">INDIVIDUAL</span>
+            <div class="pname">個人会員</div>
+            <div class="pprice">980<span class="yen">円</span><span class="per">／月・1口〜</span></div>
+            <p class="pnote">1口から参加可能。1口=1ポイント／月で挑戦者を推せる、新しい応援のかたち。</p>
+          </div>
+          <div class="price-card k2">
+            <span class="ptag">CORPORATE</span>
+            <div class="pname">法人会員</div>
+            <div class="pprice">9,800<span class="yen">円</span><span class="per">／月・10口〜</span></div>
+            <p class="pnote">最低10口（10口単位で増減）から。社のロゴが UNFOUND 誌面・WEB に掲載されます。</p>
+          </div>
+        </div>
+
+        <div class="point-list">
+          <div class="point-item">
+            <div class="pi-num">P-01</div>
+            <div class="pi-name">記事掲載の<br>推し投票</div>
+          </div>
+          <div class="point-item">
+            <div class="pi-num">P-02</div>
+            <div class="pi-name">次の取材先の<br>推薦</div>
+          </div>
+          <div class="point-item">
+            <div class="pi-num">P-03</div>
+            <div class="pi-name">挑戦者への<br>応援メッセージ</div>
+          </div>
+          <div class="point-item">
+            <div class="pi-num">P-04</div>
+            <div class="pi-name">推した会員のロゴ<br>を記事に掲載</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- スポンサー企業の方へ -->
   <div class="detail reveal" id="unfound-sponsor">
-    <span class="label blue">スポンサー企業の方へ</span>
+    <span class="label blue">スポンサーの方へ</span>
     <div class="body">
       <h3>広告効果の推定データ。</h3>
-      <p>初号は大分県中心地を中心に、<b>1号あたり10万部</b>を発行。一般家庭へのポスティングに加え、関連企業・スポンサー企業・飲食店・ホテル・自治体などへ設置します。</p>
+      <p>初号は<b>大分県中心地を中心に発行・設置</b>を予定しています。一般家庭へのポスティングに加え、関連企業・スポンサー企業・飲食店・ホテル・自治体などへ設置します。<b>発行部数は上記口数によって変動します。</b></p>
 
-      <div class="ad-data">
-        <div class="cell">
-          <span class="k">CIRCULATION</span>
-          <span class="v">10<small>万部／号</small></span>
-          <span class="nt">ポスティング＋設置配布</span>
-        </div>
-        <div class="cell">
-          <span class="k">REACH</span>
-          <span class="v">約18<small>万人／号</small></span>
-          <span class="nt">家族内まわし読み（×1.8）</span>
-        </div>
+      <div class="ad-data" style="grid-template-columns: repeat(2, 1fr);">
         <div class="cell">
           <span class="k">STORIES</span>
           <span class="v">30<small>〜40件</small></span>
@@ -1931,7 +1907,7 @@
         </div>
         <div class="cell">
           <span class="k">MEASUREMENT</span>
-          <span class="v" style="font-size:clamp(15px,1.6vw,19px); line-height:1.6;">広告効果測定の<br>仕組みを導入</span>
+          <span class="v" style="font-size:clamp(15px,1.6vw,19px); line-height:1.6; white-space:normal;">広告効果測定の<br>仕組みを導入</span>
         </div>
       </div>
 
@@ -1967,6 +1943,44 @@
         </div>
         <a class="cta-btn" href="https://forms.gle/CTkGBuJ7pPf3YG8z7" target="_blank" rel="noopener noreferrer">媒体資料を請求 <span aria-hidden="true">→</span></a>
       </div>
+    </div>
+  </div>
+
+  <!-- 市場 -->
+  <div class="detail reveal">
+    <span class="label">市場</span>
+    <div class="body">
+      <h3>スポンサー × 推し活で、<br><span class="mk">4兆円超</span> のマーケット。</h3>
+      <p>わたしたちが楽しむイベント、スポーツ、音楽、カンファレンス — その多くは、企業からの<b>スポンサー資金（国内 8,500億円）</b>で支えられています。意外なほど大きな器が、身近な挑戦を下支えしています。</p>
+      <p>そして、その横で急成長しているのが個人発の<b>「推し活」市場</b>。<b>野村総合研究所の2025年調査では推し活市場は 3.8兆円規模、推し活人口は約2,600万人</b>に達するとされています。誰かを応援することにお金と時間を使う文化が、若年層から中高年層まで広がっています。</p>
+      <p><b>plan8 は、この「企業のスポンサーシップ」と「個人の推し活」というふたつの市場をつなぎ、地域の挑戦者へと流れを引き込みます。</b></p>
+
+      <div class="figs">
+        <div class="f c1">
+          <span class="k">SPONSORSHIP</span>
+          <span class="v">8,500<small>億円</small></span>
+          <span class="nt">国内スポンサー市場・2024年推計</span>
+        </div>
+        <div class="f c2">
+          <span class="k">OSHIKATSU</span>
+          <span class="v">3.8<small>兆円</small></span>
+          <span class="nt">国内推し活市場・NRI 2025年</span>
+        </div>
+        <div class="f c3">
+          <span class="k">POPULATION</span>
+          <span class="v">約2,600<small>万人</small></span>
+          <span class="nt">国内推し活人口（15〜69歳）</span>
+        </div>
+        <div class="f c4">
+          <span class="k">DATABASE</span>
+          <span class="v">7<small>万レコード</small></span>
+          <span class="nt">大分県・過去30年分の協賛履歴</span>
+        </div>
+      </div>
+
+      <p style="margin-top:32px;">いま、推し活の対象は、アイドル・アニメキャラ・スポーツ選手など <b>「テレビの向こうの誰か」</b> に大きく偏っています。<br>
+      <b><span class="mk">plan8 のミッションは、その対象に「身近な挑戦者」が選ばれる割合を、少しずつ、しかし確実に増やしていくこと。</span></b><br>
+      街角で挑戦している人、自分のとなりにいる挑戦者を応援する文化を、地域からつくっていきます。</p>
     </div>
   </div>
 </section>
@@ -2035,14 +2049,14 @@
   <div class="detail reveal">
     <span class="label">料金</span>
     <div class="body">
-      <h3>月額 <span class="mk-blue">5万円</span> から。<br>平均20万円。</h3>
-      <p>月額制のご契約は <b>5万円／月</b> から。ご支援の範囲・稼働量・関わり方に応じて、個別にご相談のうえお見積もりします。<b>平均20万円／月</b>でご利用いただいています。単発のセッションや課題の壁打ちのみのご利用も可能です。</p>
+      <h3>月額 <span class="mk-blue">5万円</span> から。</h3>
+      <p>月額制のご契約は <b>5万円／月</b> から。ご支援の範囲・稼働量・関わり方に応じて、個別にご相談のうえお見積もりします。単発のセッションや課題の壁打ちのみのご利用も可能です。</p>
 
       <div class="figs" style="grid-template-columns: repeat(2, 1fr);">
         <div class="f c2">
           <span class="k">MONTHLY</span>
           <span class="v">5<small>万円〜／月</small></span>
-          <span class="nt">月額制ご契約（個別見積／平均20万円）</span>
+          <span class="nt">月額制ご契約（個別見積）</span>
         </div>
         <div class="f c4">
           <span class="k">FIRST MEETING</span>
