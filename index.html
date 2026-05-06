@@ -1344,38 +1344,130 @@
   }
 
   /* ============ PARTNERS ============ */
-  .coming-soon {
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2vw, 24px);
+    margin-top: 32px;
+  }
+  @media (max-width: 900px) { .partners-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .partners-grid { grid-template-columns: 1fr; } }
+
+  .partner-card {
+    background: var(--bg);
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column; gap: 14px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .partner-card:hover {
+    transform: translate(0, -3px);
+    box-shadow: 0 7px 0 0 var(--ink);
+  }
+  .partner-card .photo {
+    width: 72px;
+    height: 72px;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
     background: var(--cream);
-    border: 2px dashed var(--ink);
-    border-radius: var(--radius-lg);
-    padding: clamp(48px, 8vw, 80px) clamp(24px, 4vw, 48px);
-    text-align: center;
+    align-self: flex-start;
   }
-  .coming-soon .badge {
-    display: inline-block;
-    background: var(--ink);
-    color: var(--yellow);
-    padding: 8px 18px;
-    border-radius: var(--radius-pill);
-    font-family: 'LINE Seed JP', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    margin-bottom: 20px;
+  .partner-card:nth-child(6n+1) .photo { background: var(--cream); }
+  .partner-card:nth-child(6n+2) .photo { background: #DDEBFF; }
+  .partner-card:nth-child(6n+3) .photo { background: #D4F4E2; }
+  .partner-card:nth-child(6n+4) .photo { background: #E8E0FF; }
+  .partner-card:nth-child(6n+5) .photo { background: #FFE0EA; }
+  .partner-card:nth-child(6n+6) .photo { background: #FFE9A3; }
+  .partner-card .photo img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 1;
   }
-  .coming-soon h4 {
+  .partner-card .photo:has(img)::after { display: none; }
+  .partner-card .photo::after {
+    content: attr(data-initial);
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
     font-family: 'LINE Seed JP', sans-serif;
-    font-size: clamp(22px, 2.8vw, 32px);
+    font-size: 32px;
     font-weight: 800;
-    line-height: 1.6;
-    margin-bottom: 14px;
+    color: var(--ink);
   }
-  .coming-soon p {
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 2;
+  .partner-card .co {
+    align-self: flex-start;
+    font-family: 'LINE Seed JP', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 5px 11px;
+    border-radius: var(--radius-pill);
+  }
+  .partner-card .name {
+    font-family: 'LINE Seed JP', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .partner-card .name .post {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.14em;
+  }
+  .partner-card .role {
+    align-self: flex-start;
+    font-family: 'LINE Seed JP', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #fff;
+    background: var(--green);
+    padding: 5px 11px;
+    border-radius: var(--radius-pill);
+  }
+  .partner-card:nth-child(6n+1) .role { background: var(--red); color: #fff; }
+  .partner-card:nth-child(6n+2) .role { background: var(--blue); color: #fff; }
+  .partner-card:nth-child(6n+3) .role { background: var(--green); color: #fff; }
+  .partner-card:nth-child(6n+4) .role { background: var(--purple); color: #fff; }
+  .partner-card:nth-child(6n+5) .role { background: var(--pink); color: var(--ink); }
+  .partner-card:nth-child(6n+6) .role { background: var(--yellow); color: var(--ink); }
+  .partner-card .can {
+    font-size: 13px;
+    line-height: 1.9;
     color: var(--ink-soft);
-    margin: 0 auto;
+    font-weight: 500;
+  }
+  .partner-card .web {
+    margin-top: auto;
+    align-self: flex-start;
+    font-family: 'LINE Seed JP', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+  .partner-card .web:hover { color: var(--blue); border-color: var(--blue); }
+  .partner-card .web::after { content: " ↗"; }
+  @media (max-width: 560px) {
+    .partner-card { padding: 18px; gap: 12px; }
+    .partner-card .co { letter-spacing: 0.10em; }
   }
 
   .alliance-cta {
@@ -1416,6 +1508,154 @@
   }
   .alliance-cta .cta-btn { background: var(--ink); color: var(--bg); border-color: var(--ink); }
   .alliance-cta .cta-btn:hover { background: var(--green); color: #fff; border-color: var(--green); }
+
+  /* ============ RECRUIT ============ */
+  .recruit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(20px, 2.4vw, 28px);
+  }
+  @media (max-width: 760px) { .recruit-grid { grid-template-columns: 1fr; } }
+  .recruit-card {
+    background: var(--bg);
+    border: 2px solid var(--ink);
+    border-radius: var(--radius-lg);
+    padding: clamp(24px, 3vw, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: var(--shadow);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .recruit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg, 0 20px 50px -20px rgba(0,0,0,0.18)); }
+  .recruit-card .role-tag {
+    align-self: flex-start;
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-family: 'LINE Seed JP', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+  }
+  .recruit-card.r-editor .role-tag { background: var(--red); color: #fff; }
+  .recruit-card.r-designer .role-tag { background: var(--blue); color: #fff; }
+  .recruit-card h3 {
+    font-family: 'LINE Seed JP', sans-serif;
+    font-size: clamp(20px, 2.2vw, 26px);
+    font-weight: 800;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .recruit-card h3 .en {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+  .recruit-card .lead {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.95;
+    color: var(--ink-soft);
+  }
+  .recruit-card .meta {
+    display: grid;
+    gap: 10px;
+    margin-top: 4px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(0,0,0,0.12);
+  }
+  .recruit-card .meta dl {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 6px 12px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .recruit-card .meta dt {
+    font-family: 'LINE Seed JP', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    padding-top: 2px;
+  }
+  .recruit-card .meta dd { color: var(--ink); font-weight: 600; }
+  .recruit-card ul.points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 4px 0 0;
+  }
+  .recruit-card ul.points li {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.75;
+    color: var(--ink);
+    padding-left: 22px;
+    position: relative;
+  }
+  .recruit-card ul.points li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 0.7em;
+    width: 10px;
+    height: 2px;
+    background: var(--ink);
+  }
+  .recruit-card.r-editor ul.points li::before { background: var(--red); }
+  .recruit-card.r-designer ul.points li::before { background: var(--blue); }
+  .recruit-card h4.subhead {
+    font-family: 'LINE Seed JP', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: var(--ink);
+    margin-top: 6px;
+  }
+  .recruit-cta {
+    margin-top: clamp(28px, 3.6vw, 44px);
+    padding: clamp(28px, 4vw, 40px);
+    border-radius: var(--radius-lg);
+    background: var(--ink);
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: clamp(20px, 3vw, 36px);
+    align-items: center;
+  }
+  .recruit-cta .eyebrow {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--ink);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-family: 'LINE Seed JP', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    margin-bottom: 14px;
+  }
+  .recruit-cta h4 {
+    font-family: 'LINE Seed JP', sans-serif;
+    font-size: clamp(20px, 2.4vw, 28px);
+    font-weight: 800;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+  .recruit-cta p { font-size: 14px; font-weight: 500; line-height: 1.95; color: rgba(255,255,255,0.78); }
+  .recruit-cta .cta-btn { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+  .recruit-cta .cta-btn:hover { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
+  @media (max-width: 720px) {
+    .recruit-cta { grid-template-columns: 1fr; gap: 24px; }
+    .recruit-cta .cta-btn { width: 100%; justify-content: space-between; }
+  }
 
   /* ============ CLOSING ============ */
   .closing {
@@ -1553,6 +1793,7 @@
       <a href="#cino">プランB</a>
       <a href="#message">代表メッセージ</a>
       <a href="#company">会社概要</a>
+      <a href="#recruit">採用</a>
       <a href="#contact" class="cta-pill">お問い合わせ →</a>
     </div>
     <button class="burger" id="navBurger" aria-label="メニュー" aria-expanded="false" aria-controls="navLinks">
@@ -2180,19 +2421,40 @@
   <div class="s-head reveal">
     <span class="eyebrow green">ALLIANCE PLANNERS</span>
     <h2>
-      アライアンス<br>プランナー
+      アライアンスプランナー
       <small class="sm">Alliance Planners</small>
     </h2>
     <p class="desc">
-      plan8 のとなりには、それぞれの領域で挑戦者を支える<b>外部パートナー</b>たちがいます。ひとりでは届かない場所へ、つながりでご一緒します。<br>
+      plan8 のとなりには、それぞれの領域で挑戦者を支える<b>心強いパートナー</b>たちがいます。plan8 がハブになり、つながりの力と最適な組み合わせで皆様のポテンシャルを最大化します。<br>
       アライアンスプランナーは、UNFOUND にも毎号掲載され、地域の読者からも見つけていただける存在となります。
     </p>
   </div>
 
-  <div class="coming-soon reveal">
-    <span class="badge">★ COMING SOON</span>
-    <h4>アライアンスプランナー、<br>掲載準備中です。</h4>
-    <p>現在、初号掲載に向けた取材・編集を進めています。順次ご紹介していく予定です。アライアンスプランナーとしての参画にご関心のある方は、下記よりお気軽にご連絡ください。</p>
+  <div class="partners-grid reveal">
+    <div class="partner-card">
+      <div class="photo" data-initial="S"></div>
+      <span class="co">株式会社 Uca</span>
+      <span class="name">嶋山 哲史<span class="post">代表取締役</span></span>
+      <span class="role">ブランディング / 編集</span>
+      <p class="can">企業と事業の「ことば」を整えます。UNFOUND のブランド編集・コピーを担当。</p>
+      <a class="web" href="https://ucainc.info/" target="_blank" rel="noopener noreferrer">ucainc.info</a>
+    </div>
+    <div class="partner-card">
+      <div class="photo" data-initial="I"></div>
+      <span class="co">株式会社 SHIP</span>
+      <span class="name">家長 真大<span class="post">代表取締役</span></span>
+      <span class="role">ソフトウェア開発</span>
+      <p class="can">「開発」と「デザイン」を通じて、グローバルに価値提供を行います。</p>
+      <a class="web" href="https://ship-inc.jp/" target="_blank" rel="noopener noreferrer">ship-inc.jp</a>
+    </div>
+    <div class="partner-card">
+      <div class="photo" data-initial="A"></div>
+      <span class="co">株式会社 大分事業承継プラザ</span>
+      <span class="name">阿部 悠次郎</span>
+      <span class="role">事業承継 / M&amp;A</span>
+      <p class="can">経営者の想いに寄り添った事業承継・M&amp;A をサポート。次の世代へ、会社の物語をつなぎます。</p>
+      <a class="web" href="https://maplaza.biz/" target="_blank" rel="noopener noreferrer">maplaza.biz</a>
+    </div>
   </div>
 
   <div class="alliance-cta reveal">
@@ -2205,8 +2467,96 @@
   </div>
 </section>
 
+<!-- ============ RECRUIT ============ -->
+<section id="recruit" data-screen-label="11 recruit">
+  <div class="s-head reveal">
+    <span class="eyebrow red">RECRUIT</span>
+    <h2>
+      仲間を募集しています。
+      <small class="sm">Join UNFOUND</small>
+    </h2>
+    <p class="desc">
+      フリーペーパー <b>UNFOUND</b> を、地域の挑戦者と読者の手で育てていきます。<br>
+      大分から世界の挑戦者の物語を見つけ、ことばと誌面で残す仕事です。<b>業務委託・副業・兼業</b>も歓迎します。まずはカジュアル面談からどうぞ。
+    </p>
+  </div>
+
+  <div class="recruit-grid reveal">
+    <div class="recruit-card r-editor">
+      <span class="role-tag">記者・編集者</span>
+      <h3>
+        挑戦者の物語を、ことばで残す。
+        <span class="en">REPORTER / EDITOR</span>
+      </h3>
+      <p class="lead">
+        UNFOUND の取材・執筆・編集を担当いただきます。経営者・職人・若手起業家など、地域で挑戦する人のもとへ足を運び、その人の「ことば」を引き出して誌面に編みます。
+      </p>
+      <h4 class="subhead">こんな仕事</h4>
+      <ul class="points">
+        <li>取材アポイント・現地取材・写真ディレクション</li>
+        <li>記事の構成・執筆・推敲（巻頭インタビュー〜コラム）</li>
+        <li>編集会議への参加、企画立案</li>
+      </ul>
+      <h4 class="subhead">こんな方を歓迎</h4>
+      <ul class="points">
+        <li>編集・ライティング・記者の経験がある方</li>
+        <li>地域や中小企業、挑戦する人に関心がある方</li>
+        <li>大分県内で動ける方（リモート併用可）</li>
+      </ul>
+      <div class="meta">
+        <dl>
+          <dt>雇用形態</dt><dd>正社員 / 業務委託 / 副業・兼業可</dd>
+          <dt>稼働</dt><dd>記事単位 / 月数本〜応相談</dd>
+          <dt>勤務地</dt><dd>大分県内中心 / リモート併用</dd>
+          <dt>報酬</dt><dd>応相談</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="recruit-card r-designer">
+      <span class="role-tag">誌面デザイナー</span>
+      <h3>
+        ことばを、誌面の体験にする。
+        <span class="en">EDITORIAL DESIGNER</span>
+      </h3>
+      <p class="lead">
+        UNFOUND の誌面デザイン・レイアウト・組版を担当いただきます。挑戦者の物語が読者の手のひらで生きるよう、写真とことばを誌面の体験へと翻訳する仕事です。
+      </p>
+      <h4 class="subhead">こんな仕事</h4>
+      <ul class="points">
+        <li>各号のレイアウト設計・組版・入稿データ制作</li>
+        <li>表紙・特集ビジュアルのアートディレクション</li>
+        <li>編集チームとの誌面ディスカッション</li>
+      </ul>
+      <h4 class="subhead">こんな方を歓迎</h4>
+      <ul class="points">
+        <li>エディトリアル / 紙媒体のデザイン経験がある方</li>
+        <li>InDesign（または同等ツール）で入稿経験がある方</li>
+        <li>タイポグラフィ・写真選定にこだわりたい方</li>
+      </ul>
+      <div class="meta">
+        <dl>
+          <dt>雇用形態</dt><dd>正社員 / 業務委託 / 副業・兼業可</dd>
+          <dt>稼働</dt><dd>号単位 / 隔月〜応相談</dd>
+          <dt>勤務地</dt><dd>フルリモート可</dd>
+          <dt>報酬</dt><dd>応相談</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="recruit-cta reveal">
+    <div>
+      <div class="eyebrow">CASUAL MEETING</div>
+      <h4>まずは話してみませんか。</h4>
+      <p>応募の前に、お互いの温度感を確かめるカジュアル面談（オンライン30分）を歓迎します。お問い合わせフォームに「<b>採用について</b>」とご記入のうえ、ご関心のある職種・ご経歴・ポートフォリオなどを添えてご連絡ください。</p>
+    </div>
+    <a class="cta-btn" href="https://forms.gle/Ja8Xbh3mZ13YK1Vm6" target="_blank" rel="noopener noreferrer">採用について相談する <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
 <!-- ============ CLOSING ============ -->
-<section id="contact" class="closing full" data-screen-label="11 closing">
+<section id="contact" class="closing full" data-screen-label="12 closing">
   <div class="wrap">
     <div class="lede reveal">
       あなたの挑戦を、<br>
@@ -2241,6 +2591,7 @@
         <li><a href="#company">会社概要</a></li>
         <li><a href="#founder">代表</a></li>
         <li><a href="#message">代表メッセージ</a></li>
+        <li><a href="#recruit">採用情報</a></li>
       </ul>
     </div>
     <div class="col">
