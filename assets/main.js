@@ -131,3 +131,31 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     if (window.innerWidth > 900) close();
   });
 })();
+
+/* ============ Office presence neon (WiFi) ============ */
+(function wifiNeon() {
+  const el = document.getElementById('wifiNeon');
+  if (!el) return;
+  const url = el.dataset.statusUrl || 'status.json';
+  const POLL_MS = 60 * 1000;
+  const FRESH_MS = 15 * 60 * 1000;
+
+  async function check() {
+    try {
+      const res = await fetch(url + (url.includes('?') ? '&' : '?') + '_=' + Date.now(), { cache: 'no-store' });
+      if (!res.ok) throw new Error('fetch failed');
+      const j = await res.json();
+      const ts = j.ts ? Date.parse(j.ts) : 0;
+      const fresh = !ts || (Date.now() - ts) < FRESH_MS;
+      const on = !!j.at_office && fresh;
+      el.classList.toggle('on', on);
+    } catch (_) {
+      el.classList.remove('on');
+    }
+  }
+  check();
+  setInterval(check, POLL_MS);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) check();
+  });
+})();
