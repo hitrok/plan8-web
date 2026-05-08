@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://plan8.jp/sitemap.xml
+# AI / LLM machine-readable summary
+# https://plan8.jp/llms.txt
