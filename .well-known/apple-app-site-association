@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "FK4P798EL8.me.tsuruoka.oshi8",
+        "paths": [ "/oshi8/share/*", "/oshi8/share", "/oshi8/o/*" ],
+        "components": [
+          { "/": "/oshi8/share*" },
+          { "/": "/oshi8/o/*" }
+        ]
+      }
+    ]
+  }
+}
