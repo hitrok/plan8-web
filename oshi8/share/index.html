@@ -147,6 +147,17 @@
     // モバイル端末ならほぼ確実に SNS 経由（インストール導線）なので注意文を常に出す。
     // 誤検知の害は案内を読むだけで実害ゼロ。
     if (isInApp || isMobile || debugForce) {
+      // SNS 内部ブラウザを検知した場合のみ：
+      // 🍎「アプリでひらく」CTA は別途 attribution 用にクリップボードへ書き込むため、
+      // URL コピーと併用するとクリップボードが上書きされる。
+      // 内部ブラウザでは元 CTA を隠し URL コピー一本に絞る（外部ブラウザに遷移後 isInApp=false になって本来の CTA が再表示）。
+      if (isInApp || debugForce) {
+        var origCta = document.getElementById('cta');
+        if (origCta) origCta.style.display = 'none';
+        var ctaSub = origCta && origCta.nextElementSibling;
+        if (ctaSub) ctaSub.style.display = 'none';
+      }
+
       var notice = document.createElement('div');
       notice.style.cssText = 'margin:24px auto 0;padding:18px;background:#FFF3CD;border:1px solid #FFE69C;border-radius:12px;color:#664D03;font-size:13px;text-align:left;line-height:1.7;max-width:480px';
       notice.innerHTML =
