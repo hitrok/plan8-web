@@ -143,13 +143,14 @@
     var isInApp = inAppRe.test(ua);
     var isIOS = /iPhone|iPad|iPod/i.test(ua);
 
-    // 内部ブラウザ + iOS の場合、Safari で開くよう促す（カスタムスキームが効かないため）
+    // 内部ブラウザの場合、外部ブラウザで開くよう促す（カスタムスキームが効かないため）
     if (isInApp) {
       var notice = document.createElement('div');
       notice.style.cssText = 'margin:24px auto 0;padding:14px 16px;background:#FFF3CD;border:1px solid #FFE69C;border-radius:12px;color:#664D03;font-size:13px;text-align:left;line-height:1.7;max-width:480px';
-      notice.innerHTML = isIOS
-        ? '<strong>⚠️ アプリで開けない場合：</strong><br>このアプリ内ブラウザではアプリ起動できません。<br>右上の <strong>⋯ メニュー → 「Safari で開く」</strong> を選んでから下のボタンを押してください。'
-        : '<strong>⚠️ アプリで開けない場合：</strong><br>このアプリ内ブラウザではアプリ起動できません。<br>右上のメニューから <strong>「Chrome / 標準ブラウザで開く」</strong> を選んでから下のボタンを押してください。';
+      notice.innerHTML =
+        '<strong>⚠️ アプリで開けない場合：</strong><br>' +
+        'このアプリ内ブラウザではアプリ起動できません。<br>' +
+        '右上の <strong>⋯ メニュー → 外部ブラウザ（Safari / Chrome 等）で開く</strong> を選んでから下のボタンを押してください。';
       var ctaEl = document.getElementById('cta');
       if (ctaEl && ctaEl.parentNode) ctaEl.parentNode.insertBefore(notice, ctaEl);
     }
