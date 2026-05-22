@@ -134,25 +134,34 @@
       (ref ? 'ref=' + encodeURIComponent(ref) : '');
 
     // SNS / メッセンジャー等の内部ブラウザ判定（カスタムスキームをブロックする）
-    // - Twitter/X: 'Twitter for iPhone'
-    // - Instagram: 'Instagram'
-    // - Facebook: 'FBAN' or 'FBAV'
-    // - LINE: 'Line'
-    // - TikTok: 'TikTok' or 'musically'
-    var inAppRe = /(Twitter|TwitterAndroid|Instagram|FBAN|FBAV|Line\/|TikTok|musically)/i;
-    var isInApp = inAppRe.test(ua);
-    var isIOS = /iPhone|iPad|iPod/i.test(ua);
+    // UA はバージョンアップで変わるため、複数の signal を OR で判定する：
+    // ①UA に SNS 名 ②document.referrer が SNS 由来 ③モバイル端末
+    // 誤検知側に倒しても害が無い案内なので積極的に出す。
+    var inAppRe = /(Twitter|TwitterAndroid|Instagram|FBAN|FBAV|Line\/|TikTok|musically|KAKAOTALK)/i;
+    var refRe = /(twitter\.com|x\.com|t\.co|instagram\.com|facebook\.com|fb\.me|line\.me|tiktok\.com)/i;
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
+    var isInApp = inAppRe.test(ua) || refRe.test(document.referrer || '');
+    var debugForce = new URLSearchParams(location.search).get('debug') === '1';
 
-    // 内部ブラウザの場合、外部ブラウザで開くよう促す（カスタムスキームが効かないため）
-    if (isInApp) {
+    // モバイル端末ならほぼ確実に SNS 経由（インストール導線）なので注意文を常に出す。
+    // 誤検知の害は「Safariで開いてください」を Safari ユーザーが見るだけで実害ゼロ。
+    if (isInApp || isMobile || debugForce) {
       var notice = document.createElement('div');
       notice.style.cssText = 'margin:24px auto 0;padding:14px 16px;background:#FFF3CD;border:1px solid #FFE69C;border-radius:12px;color:#664D03;font-size:13px;text-align:left;line-height:1.7;max-width:480px';
       notice.innerHTML =
         '<strong>⚠️ アプリで開けない場合：</strong><br>' +
-        'このアプリ内ブラウザではアプリ起動できません。<br>' +
+        'X や Instagram など SNS のアプリ内ブラウザではアプリを起動できません。<br>' +
         '右上の <strong>⋯ メニュー → 外部ブラウザ（Safari / Chrome 等）で開く</strong> を選んでから下のボタンを押してください。';
       var ctaEl = document.getElementById('cta');
       if (ctaEl && ctaEl.parentNode) ctaEl.parentNode.insertBefore(notice, ctaEl);
+    }
+
+    // 診断用：?debug=1 を付けて開くと UA と referrer を表示
+    if (debugForce) {
+      var dbg = document.createElement('pre');
+      dbg.style.cssText = 'margin:16px auto 0;padding:10px;background:#f4f4f4;color:#333;font-size:10px;text-align:left;max-width:480px;white-space:pre-wrap;word-break:break-all;border-radius:8px';
+      dbg.textContent = 'UA: ' + ua + '\nReferrer: ' + (document.referrer || '(empty)') + '\nisInApp: ' + isInApp + '\nisMobile: ' + isMobile;
+      document.querySelector('.wrap').appendChild(dbg);
     }
 
     // CTA タップ：①clipboard へ ref 書き込み（新規 DL attribution 用）
