@@ -152,35 +152,38 @@
       notice.innerHTML =
         '<strong>⚠️ アプリで開けない場合：</strong><br>' +
         'X や Instagram など SNS のアプリ内ブラウザではアプリを起動できません。<br>' +
-        '下のボタンを押して<strong>外部ブラウザ（Safari / Chrome 等）で開いて</strong>から「アプリでひらく」をタップしてください。' +
-        '<div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">' +
-          '<button id="openExternal" type="button" style="' +
-            'background:#000;color:#fff;border:none;border-radius:10px;' +
+        '<ol style="margin:10px 0 0 1.2em;padding:0;font-size:13px">' +
+          '<li>下のボタンで<strong>このページの URL をコピー</strong></li>' +
+          '<li>Safari や Chrome などの<strong>外部ブラウザを開く</strong></li>' +
+          '<li>アドレス欄に<strong>貼り付けてアクセス</strong></li>' +
+          '<li>「アプリでひらく」をタップ</li>' +
+        '</ol>' +
+        '<div style="margin-top:14px">' +
+          '<button id="copyUrl" type="button" style="' +
+            'width:100%;background:#000;color:#fff;border:none;border-radius:10px;' +
             'padding:14px 16px;font-size:14px;font-weight:700;cursor:pointer;' +
             'display:flex;align-items:center;justify-content:center;gap:8px;' +
             'font-family:inherit">' +
-            '🌐 外部ブラウザで開く（URL もコピー）' +
+            '📋 URL をコピーする' +
           '</button>' +
-          '<div id="copiedHint" style="display:none;color:#155724;font-weight:700;font-size:12px;text-align:center">' +
-            '✓ URL をコピーしました。外部ブラウザのアドレス欄に貼り付けてください。' +
+          '<div id="copiedHint" style="display:none;margin-top:10px;color:#155724;font-weight:700;font-size:12px;text-align:center;line-height:1.6">' +
+            '✓ URL をコピーしました<br>外部ブラウザのアドレス欄に貼り付けてください' +
           '</div>' +
         '</div>';
       var ctaEl = document.getElementById('cta');
       if (ctaEl && ctaEl.parentNode) ctaEl.parentNode.insertBefore(notice, ctaEl);
 
-      // 外部ブラウザを開く（ベストエフォート）＋常に URL をクリップボードへコピー
-      var openBtn = document.getElementById('openExternal');
-      if (openBtn) {
-        openBtn.addEventListener('click', async function () {
+      // URL コピー：iOS WebView でも document.execCommand フォールバックで動く
+      var copyBtn = document.getElementById('copyUrl');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async function () {
           var fullUrl = location.href;
           var copied = false;
-          // ①クリップボードへコピー
           try {
             if (navigator.clipboard && navigator.clipboard.writeText) {
               await navigator.clipboard.writeText(fullUrl);
               copied = true;
             } else {
-              // 古い API フォールバック
               var ta = document.createElement('textarea');
               ta.value = fullUrl;
               ta.style.position = 'fixed';
@@ -194,18 +197,11 @@
 
           if (copied) {
             document.getElementById('copiedHint').style.display = 'block';
-            openBtn.textContent = '✓ コピー済み';
-            openBtn.style.background = '#155724';
-          }
-
-          // ②ワンタップ外部ブラウザ起動を試す（OS 毎の挙動差あり）
-          //  iOS: x-safari-https:// スキーム（X の WebView では弾かれるが Safari は開ける場合あり）
-          //  Android: intent:// で Chrome 指定
-          if (isIOS) {
-            try { window.location.href = 'x-safari-https://' + location.host + location.pathname + location.search; } catch (_) {}
-          } else if (/Android/i.test(ua)) {
-            var safe = location.href.replace(/^https?:\/\//, '');
-            try { window.location.href = 'intent://' + safe + '#Intent;scheme=https;package=com.android.chrome;end;'; } catch (_) {}
+            copyBtn.textContent = '✓ コピー済み';
+            copyBtn.style.background = '#155724';
+          } else {
+            copyBtn.textContent = '⚠️ コピーできませんでした';
+            copyBtn.style.background = '#dc3545';
           }
         });
       }
