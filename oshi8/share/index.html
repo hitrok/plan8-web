@@ -140,20 +140,75 @@
     var inAppRe = /(Twitter|TwitterAndroid|Instagram|FBAN|FBAV|Line\/|TikTok|musically|KAKAOTALK)/i;
     var refRe = /(twitter\.com|x\.com|t\.co|instagram\.com|facebook\.com|fb\.me|line\.me|tiktok\.com)/i;
     var isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
+    var isIOS = /iPhone|iPad|iPod/i.test(ua);
     var isInApp = inAppRe.test(ua) || refRe.test(document.referrer || '');
     var debugForce = new URLSearchParams(location.search).get('debug') === '1';
 
     // モバイル端末ならほぼ確実に SNS 経由（インストール導線）なので注意文を常に出す。
-    // 誤検知の害は「Safariで開いてください」を Safari ユーザーが見るだけで実害ゼロ。
+    // 誤検知の害は案内を読むだけで実害ゼロ。
     if (isInApp || isMobile || debugForce) {
       var notice = document.createElement('div');
-      notice.style.cssText = 'margin:24px auto 0;padding:14px 16px;background:#FFF3CD;border:1px solid #FFE69C;border-radius:12px;color:#664D03;font-size:13px;text-align:left;line-height:1.7;max-width:480px';
+      notice.style.cssText = 'margin:24px auto 0;padding:18px;background:#FFF3CD;border:1px solid #FFE69C;border-radius:12px;color:#664D03;font-size:13px;text-align:left;line-height:1.7;max-width:480px';
       notice.innerHTML =
         '<strong>⚠️ アプリで開けない場合：</strong><br>' +
         'X や Instagram など SNS のアプリ内ブラウザではアプリを起動できません。<br>' +
-        '右上の <strong>⋯ メニュー → 外部ブラウザ（Safari / Chrome 等）で開く</strong> を選んでから下のボタンを押してください。';
+        '下のボタンを押して<strong>外部ブラウザ（Safari / Chrome 等）で開いて</strong>から「アプリでひらく」をタップしてください。' +
+        '<div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">' +
+          '<button id="openExternal" type="button" style="' +
+            'background:#000;color:#fff;border:none;border-radius:10px;' +
+            'padding:14px 16px;font-size:14px;font-weight:700;cursor:pointer;' +
+            'display:flex;align-items:center;justify-content:center;gap:8px;' +
+            'font-family:inherit">' +
+            '🌐 外部ブラウザで開く（URL もコピー）' +
+          '</button>' +
+          '<div id="copiedHint" style="display:none;color:#155724;font-weight:700;font-size:12px;text-align:center">' +
+            '✓ URL をコピーしました。外部ブラウザのアドレス欄に貼り付けてください。' +
+          '</div>' +
+        '</div>';
       var ctaEl = document.getElementById('cta');
       if (ctaEl && ctaEl.parentNode) ctaEl.parentNode.insertBefore(notice, ctaEl);
+
+      // 外部ブラウザを開く（ベストエフォート）＋常に URL をクリップボードへコピー
+      var openBtn = document.getElementById('openExternal');
+      if (openBtn) {
+        openBtn.addEventListener('click', async function () {
+          var fullUrl = location.href;
+          var copied = false;
+          // ①クリップボードへコピー
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(fullUrl);
+              copied = true;
+            } else {
+              // 古い API フォールバック
+              var ta = document.createElement('textarea');
+              ta.value = fullUrl;
+              ta.style.position = 'fixed';
+              ta.style.opacity = '0';
+              document.body.appendChild(ta);
+              ta.select();
+              copied = document.execCommand && document.execCommand('copy');
+              document.body.removeChild(ta);
+            }
+          } catch (_) { /* ignore */ }
+
+          if (copied) {
+            document.getElementById('copiedHint').style.display = 'block';
+            openBtn.textContent = '✓ コピー済み';
+            openBtn.style.background = '#155724';
+          }
+
+          // ②ワンタップ外部ブラウザ起動を試す（OS 毎の挙動差あり）
+          //  iOS: x-safari-https:// スキーム（X の WebView では弾かれるが Safari は開ける場合あり）
+          //  Android: intent:// で Chrome 指定
+          if (isIOS) {
+            try { window.location.href = 'x-safari-https://' + location.host + location.pathname + location.search; } catch (_) {}
+          } else if (/Android/i.test(ua)) {
+            var safe = location.href.replace(/^https?:\/\//, '');
+            try { window.location.href = 'intent://' + safe + '#Intent;scheme=https;package=com.android.chrome;end;'; } catch (_) {}
+          }
+        });
+      }
     }
 
     // 診断用：?debug=1 を付けて開くと UA と referrer を表示
