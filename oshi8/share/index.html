@@ -117,6 +117,7 @@
     var qs = new URLSearchParams(location.search);
     var oshi = qs.get('o') || '';
     var ref = qs.get('ref') || '';
+    var ua = navigator.userAgent || '';
 
     // Smart App Banner の app-argument（既インストールならアプリ起動時にこの URL が渡る）
     var arg = 'oshi8://share?' + (oshi ? 'o=' + encodeURIComponent(oshi) + '&' : '') + 'ref=' + encodeURIComponent(ref);
@@ -131,6 +132,27 @@
     var schemeUrl = 'oshi8://share?' +
       (oshi ? 'o=' + encodeURIComponent(oshi) + '&' : '') +
       (ref ? 'ref=' + encodeURIComponent(ref) : '');
+
+    // SNS / メッセンジャー等の内部ブラウザ判定（カスタムスキームをブロックする）
+    // - Twitter/X: 'Twitter for iPhone'
+    // - Instagram: 'Instagram'
+    // - Facebook: 'FBAN' or 'FBAV'
+    // - LINE: 'Line'
+    // - TikTok: 'TikTok' or 'musically'
+    var inAppRe = /(Twitter|TwitterAndroid|Instagram|FBAN|FBAV|Line\/|TikTok|musically)/i;
+    var isInApp = inAppRe.test(ua);
+    var isIOS = /iPhone|iPad|iPod/i.test(ua);
+
+    // 内部ブラウザ + iOS の場合、Safari で開くよう促す（カスタムスキームが効かないため）
+    if (isInApp) {
+      var notice = document.createElement('div');
+      notice.style.cssText = 'margin:24px auto 0;padding:14px 16px;background:#FFF3CD;border:1px solid #FFE69C;border-radius:12px;color:#664D03;font-size:13px;text-align:left;line-height:1.7;max-width:480px';
+      notice.innerHTML = isIOS
+        ? '<strong>⚠️ アプリで開けない場合：</strong><br>このアプリ内ブラウザではアプリ起動できません。<br>右上の <strong>⋯ メニュー → 「Safari で開く」</strong> を選んでから下のボタンを押してください。'
+        : '<strong>⚠️ アプリで開けない場合：</strong><br>このアプリ内ブラウザではアプリ起動できません。<br>右上のメニューから <strong>「Chrome / 標準ブラウザで開く」</strong> を選んでから下のボタンを押してください。';
+      var ctaEl = document.getElementById('cta');
+      if (ctaEl && ctaEl.parentNode) ctaEl.parentNode.insertBefore(notice, ctaEl);
+    }
 
     // CTA タップ：①clipboard へ ref 書き込み（新規 DL attribution 用）
     //           ②URL スキーム試行 → ③1.5 秒後に App Store フォールバック
