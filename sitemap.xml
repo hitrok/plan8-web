@@ -2,13 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://plan8.jp/</loc>
-    <lastmod>2026-05-09</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://plan8.jp/privacy.html</loc>
     <lastmod>2026-05-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://plan8.jp/oshipi/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://plan8.jp/morusu/</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://plan8.jp/morusu/privacy.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://plan8.jp/morusu/terms.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://plan8.jp/morusu/guidelines.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://plan8.jp/morusu/contact.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://plan8.jp/morusu/licenses.html</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
