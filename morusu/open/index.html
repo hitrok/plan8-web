@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open in Morusu</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700&display=swap">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'M PLUS 1p',"Hiragino Sans","Yu Gothic",system-ui,sans-serif;color:#111;background:#fff;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .card{max-width:360px;width:100%;text-align:center}
+  .logo{width:88px;height:88px;border-radius:20px;box-shadow:0 8px 24px rgba(0,0,0,.08);margin-bottom:20px}
+  h1{font-size:22px;font-weight:700;margin-bottom:8px}
+  p{font-size:14px;color:#555;line-height:1.9;margin-bottom:24px}
+  .btn{display:block;padding:15px 24px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;margin-bottom:12px}
+  .btn.primary{background:#E85A5A;color:#fff}
+  .btn.secondary{background:#f2f2f2;color:#111}
+  .muted{font-size:12px;color:#999;margin-top:16px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <img class="logo" src="/morusu/morusu-logo.png" alt="Morusu">
+    <h1>Open in Morusu</h1>
+    <p>Someone shared a Morusu with you.<br>Open the app to feel it.</p>
+    <a class="btn primary" id="openApp" href="#">Open Morusu</a>
+    <a class="btn secondary" href="https://apps.apple.com/app/morusu/">Get Morusu on the App Store</a>
+    <p class="muted">If the app didn't open, install it first, then tap the link again.</p>
+  </div>
+
+<script>
+  // Universal Link が発火しなかった場合（アプリ未インストール等）のフォールバック。
+  // ?u=<userId> を読んで、カスタムスキームでの起動も試みる。
+  (function () {
+    var u = new URLSearchParams(location.search).get('u');
+    var deep = u ? ('morusu://chat/' + encodeURIComponent(u)) : 'morusu://';
+    var btn = document.getElementById('openApp');
+    btn.setAttribute('href', deep);
+    // ページ表示直後に一度だけ自動で起動を試す（インストール済みなら開く）
+    setTimeout(function () { location.href = deep; }, 300);
+  })();
+</script>
+</body>
+</html>

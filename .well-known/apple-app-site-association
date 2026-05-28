@@ -9,6 +9,13 @@
           { "/": "/oshi8/share*" },
           { "/": "/oshi8/o/*" }
         ]
+      },
+      {
+        "appID": "FK4P798EL8.me.tsuruoka.morusu",
+        "paths": [ "/morusu/open", "/morusu/open/*" ],
+        "components": [
+          { "/": "/morusu/open*" }
+        ]
       }
     ]
   }
