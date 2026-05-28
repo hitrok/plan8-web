@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Morusu プライバシーポリシー｜株式会社plan8</title>
-<meta name="description" content="Morusu（モルス）アプリのプライバシーポリシー。匿名ユーザーID、ニックネーム、タップパターン、メッセージ、フォロー、プッシュトークン、利用解析の取り扱いを記載しています。">
-<meta name="author" content="株式会社plan8">
+<title>Morusu Privacy Policy | plan8 Inc.</title>
+<meta name="description" content="Privacy Policy for the Morusu app: how we handle your user ID, email, nickname, tap patterns, messages, follows, push tokens, and product analytics.">
+<meta name="author" content="plan8 Inc.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://plan8.jp/morusu/privacy.html">
 
-<meta property="og:title" content="Morusu プライバシーポリシー｜株式会社plan8">
-<meta property="og:description" content="Morusu アプリで取り扱う情報について。">
+<meta property="og:title" content="Morusu Privacy Policy | plan8 Inc.">
+<meta property="og:description" content="How the Morusu app handles your information.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://plan8.jp/morusu/privacy.html">
-<meta property="og:site_name" content="株式会社plan8">
-<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="plan8 Inc.">
+<meta property="og:locale" content="en_US">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -73,82 +73,87 @@
 <div class="wrap">
 
   <header class="top">
-    <a class="brand" href="/" aria-label="株式会社plan8 トップへ">
+    <a class="brand" href="/" aria-label="plan8 Inc. home">
       <img src="/assets/plan8-black.png" alt="plan8" width="120">
-      <span class="name">株式会社plan8</span>
+      <span class="name">plan8 Inc.</span>
     </a>
-    <a class="home" href="/morusu/">← Morusu トップ</a>
+    <a class="home" href="/morusu/">← Morusu home</a>
   </header>
 
   <main>
 
   <span class="kicker">MORUSU — PRIVACY POLICY</span>
-  <h1>Morusu プライバシーポリシー</h1>
-  <p>株式会社plan8（以下「当社」）は、当社が提供する「感覚で伝える、新しい手話」のメッセンジャーアプリ「Morusu（モルス）」（以下「本アプリ」）において、利用者の情報を以下のとおり取り扱います。</p>
-  <p class="meta">最終更新日：2026-05-27</p>
+  <h1>Morusu Privacy Policy</h1>
+  <p>plan8 Inc. ("we", "us") handles your information as described below in "Morusu", our messenger app that lets you convey feelings through touch before words.</p>
+  <p class="meta">Last updated: 2026-05-27</p>
 
   <section class="sec">
-    <h2>01. 取得する情報</h2>
-    <p>本アプリは、Supabase の認証機能を用いて<strong>ユーザーID（UUID）</strong>を発行します。利用者から直接ご入力いただく情報・自動取得する情報は以下のとおりです。</p>
+    <h2>01. Information we collect</h2>
+    <p>Morusu issues a <strong>user ID (UUID)</strong> through Supabase authentication. The information you provide and the information we collect automatically is as follows:</p>
     <ul>
-      <li>メールアドレス・パスワード（サインアップ時）</li>
-      <li>ニックネーム（英数字、世界で一意）</li>
-      <li>自分のニックネーム用タップパターン（リズム列）</li>
-      <li>送受信したメッセージ（タップパターンと関連付けた意味）</li>
-      <li>意味辞書への登録内容（テキスト、AI が補完した多言語版、正規化キー）</li>
-      <li>フォロー / フォロワー関係</li>
-      <li>受信設定・通知設定・表示言語の選択</li>
-      <li>プッシュ通知を有効にした場合のみ、デバイストークン</li>
-      <li>利用状況の解析イベント（PostHog 経由、後述）</li>
+      <li>Email address and password (at sign-up)</li>
+      <li>Nickname (alphanumeric, unique worldwide)</li>
+      <li>Your personal nickname tap pattern (a rhythm sequence)</li>
+      <li>Messages you send and receive (a tap pattern paired with a meaning)</li>
+      <li>Meanings you register in the dictionary (text, AI-generated translations, normalized key)</li>
+      <li>Follow / follower relationships</li>
+      <li>Your receiving, notification, and display-language settings</li>
+      <li>A device push token, only if you enable push notifications</li>
+      <li>Product analytics events (via PostHog — see below)</li>
     </ul>
-    <p>位置情報、連絡先、写真・カメラへのアクセスは取得しません。</p>
+    <p>We do not access your location, contacts, photos, or camera.</p>
   </section>
 
   <section class="sec">
-    <h2>02. 利用目的</h2>
+    <h2>02. How we use it</h2>
     <ul>
-      <li>本アプリの基本機能の提供（メッセージ送受信、辞書、フォロー、通知）</li>
-      <li>意味辞書の AI 正規化・多言語化（英語・日本語・スペイン語・中国語・韓国語）</li>
-      <li>不正・違反行為への対応、サービス品質の向上</li>
-      <li>プッシュ通知の配信（利用者が許可した場合）</li>
-      <li>機能改善のための匿名利用解析</li>
-    </ul>
-  </section>
-
-  <section class="sec">
-    <h2>03. 第三者提供</h2>
-    <p>当社は、本アプリで取得した情報を、利用者本人の同意がある場合または法令で認められる場合を除き、第三者に提供しません。ただし、システム運用のために以下のサービスを利用しており、各社のプライバシーポリシーが適用されます。</p>
-    <ul>
-      <li>Supabase（PostgreSQL ホスティング・認証・Edge Functions・Realtime）<br><small>提供：Supabase Inc.（米国）／<a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></small></li>
-      <li>Anthropic Claude API（意味テキストの多言語正規化）<br><small>提供：Anthropic, PBC（米国）／<a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a></small><br>※利用者が登録する意味のテキストのみを送信。氏名・メールアドレス等の個人識別情報は送りません。</li>
-      <li>Expo / EAS（アプリビルド・配信・プッシュ通知中継）<br><small>提供：650 Industries, Inc.（米国）／<a href="https://expo.dev/privacy" target="_blank" rel="noopener">expo.dev/privacy</a></small></li>
-      <li>Apple Push Notification service（プッシュ通知配送）<br><small>提供：Apple Inc.</small></li>
-      <li>PostHog（プロダクト分析）<br><small>提供：PostHog Inc.（米国）／<a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a></small><br>※匿名 ID・画面遷移・主要アクション（送信、フォロー、共有等）の集計のみ。メッセージ本文や意味テキストは送りません。</li>
+      <li>To provide the core features (messaging, dictionary, follows, notifications)</li>
+      <li>To normalize and translate dictionary meanings with AI (English, Japanese, Spanish, Chinese, Korean)</li>
+      <li>To respond to abuse and policy violations, and to improve service quality</li>
+      <li>To deliver push notifications (when you allow them)</li>
+      <li>To understand product usage and improve the app</li>
     </ul>
   </section>
 
   <section class="sec">
-    <h2>04. 情報の保管期間・削除</h2>
-    <p>利用者がアプリ内でサインアウト後にアカウント削除を依頼された場合、当社のサーバから利用者のユーザーIDおよび関連する全データを<strong>遅滞なく削除</strong>します。利用者ご自身で登録された意味辞書のエントリは、世界共通辞書として残るよう作成者IDのみを匿名化（NULL化）します（編集不可エントリのみ）。</p>
+    <h2>03. Analytics</h2>
+    <p>We use <strong>PostHog</strong> to understand how the app is used. Analytics events (screen views and key actions such as sending, following, and sharing) are <strong>associated with your user ID and nickname</strong> so we can analyze per-user behavior and improve the product. We do <strong>not</strong> send your message contents or the meaning text to PostHog, and we do <strong>not</strong> use this data for third-party advertising or cross-app tracking.</p>
   </section>
 
   <section class="sec">
-    <h2>05. 子どもの利用</h2>
-    <p>本アプリは 13 歳未満の方の利用を想定していません。13 歳未満の方は本アプリをご利用にならないでください。</p>
+    <h2>04. Third parties</h2>
+    <p>We do not provide your information to third parties except with your consent or as permitted by law. We use the following services to operate Morusu; each provider's privacy policy applies.</p>
+    <ul>
+      <li>Supabase (PostgreSQL hosting, authentication, Edge Functions, Realtime)<br><small>Provider: Supabase Inc. (USA) / <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></small></li>
+      <li>Anthropic Claude API (multilingual normalization of meaning text)<br><small>Provider: Anthropic, PBC (USA) / <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a></small><br>Only the meaning text you register is sent. No personal identifiers such as name or email are sent.</li>
+      <li>Expo / EAS (app build, distribution, push relay)<br><small>Provider: 650 Industries, Inc. (USA) / <a href="https://expo.dev/privacy" target="_blank" rel="noopener">expo.dev/privacy</a></small></li>
+      <li>Apple Push Notification service (push delivery)<br><small>Provider: Apple Inc.</small></li>
+      <li>PostHog (product analytics)<br><small>Provider: PostHog Inc. (USA) / <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a></small></li>
+    </ul>
   </section>
 
   <section class="sec">
-    <h2>06. 改定</h2>
-    <p>本ポリシーは、法令の改正・サービス内容の変更等に応じて改定することがあります。改定後の内容は本ページにて公表し、本ページに掲載した時点から効力を生じます。</p>
+    <h2>05. Data retention and deletion</h2>
+    <p>If you request account deletion in the app, we <strong>promptly delete</strong> your user ID and all associated data (messages, follows, push token, analytics identity) from our servers. Dictionary entries you created remain in the shared world dictionary, but their author ID is anonymized (set to NULL) so they are no longer linked to you.</p>
+  </section>
+
+  <section class="sec">
+    <h2>06. Children</h2>
+    <p>Morusu is not intended for use by anyone under 13. If you are under 13, please do not use the app.</p>
+  </section>
+
+  <section class="sec">
+    <h2>07. Changes</h2>
+    <p>We may revise this policy in response to changes in law or our services. The revised policy takes effect when posted on this page.</p>
   </section>
 
   <div class="contact-box">
     <span class="kicker">CONTACT</span>
-    <h2>お問い合わせ</h2>
+    <h2>Contact</h2>
     <p class="addr">
-      株式会社plan8<br>
-      〒879-5503 大分県由布市挾間町向原 16番地<br>
-      代表取締役：鶴岡 英明
+      plan8 Inc.<br>
+      16 Mukaibaru, Hasama-machi, Yufu, Oita 879-5503, Japan<br>
+      Representative Director: Hideaki Tsuruoka
     </p>
     <ul>
       <li><a href="mailto:hideaki@tsuruoka.me">hideaki@tsuruoka.me</a></li>
@@ -158,7 +163,7 @@
   </main>
 
   <footer class="bottom">
-    <span>© 2026 株式会社 plan8</span>
+    <span>© 2026 plan8 Inc.</span>
     <span><a href="/morusu/">Morusu →</a></span>
   </footer>
 
