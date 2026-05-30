@@ -39,34 +39,41 @@
 </script>
 
 <style>
+  /* UNFOUND コンセプト：純白 / 黒 / 単一アクセント（出会いの赤）/ hairline / 余白広め */
+  :root{
+    --bg:#ffffff; --fg:#111111; --sub:#666666; --muted:#9b9b9b;
+    --line:#ececec; --accent:#E85A5A; --accent-deep:#C8443F;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; }
   body {
     font-family: 'M PLUS 1p', "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
     font-weight: 400;
-    font-size: 15px;
-    line-height: 2;
-    color: #111;
-    background: #fff;
+    font-size: 16px;
+    line-height: 1.95;
+    color: var(--fg);
+    background: var(--bg);
     font-feature-settings: "palt";
     -webkit-font-smoothing: antialiased;
   }
   .wrap {
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 56px 24px 96px;
+    padding: 64px 24px 100px;
   }
-  a { color: inherit; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
-  a:hover { opacity: .55; }
-  h1, h2 { font-weight: 700; line-height: 1.7; }
-  h1 { font-size: 19px; margin-bottom: 16px; }
-  h2 { font-size: 16px; margin-bottom: 12px; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: .6; }
+  /* 本文中のリンクは下線（長文の可読性） */
+  main a { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+  h1, h2 { font-weight: 700; color: var(--fg); }
+  h1 { font-size: 26px; line-height: 1.5; letter-spacing: -0.01em; margin-bottom: 16px; }
+  h2 { font-size: 18px; line-height: 1.6; margin-bottom: 12px; }
   p { margin-bottom: 16px; }
   p:last-child { margin-bottom: 0; }
   ul { list-style: disc; padding-left: 1.4em; margin-bottom: 16px; }
   ul li { padding: 4px 0; }
-  hr { border: 0; border-top: 1px solid #e5e5e5; margin: 56px 0; }
-  small, .muted { color: #777; font-size: 13px; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 64px 0; }
+  small, .muted { color: var(--muted); font-size: 13px; }
   b, strong { font-weight: 700; }
 
   header.top {
@@ -74,54 +81,60 @@
     align-items: center;
     justify-content: space-between;
     gap: 14px;
-    margin-bottom: 64px;
+    margin-bottom: 72px;
   }
   header.top .brand { display: inline-flex; align-items: center; gap: 10px; }
   header.top .brand img { height: 20px; width: auto; display: block; }
   header.top .brand .name { font-weight: 700; font-size: 14px; letter-spacing: 0.04em; }
-  header.top .home { font-size: 12px; color: #777; }
+  header.top .home { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
   @media (max-width: 480px) {
     header.top .brand img { height: 18px; }
     header.top .brand .name { font-size: 13px; }
+    h1 { font-size: 22px; }
+    body { font-size: 15px; }
   }
 
+  /* Apple 風のカラード・アイブロウ */
   .kicker {
     display: block;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    color: #777;
-    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 14px;
   }
 
   .meta {
     margin-top: 8px;
-    color: #777;
+    color: var(--muted);
     font-size: 13px;
   }
 
-  section.sec h2 { margin-top: 48px; }
+  section.sec h2 { margin-top: 52px; }
 
   .contact-box {
-    margin-top: 56px;
-    padding-top: 24px;
-    border-top: 1px solid #e5e5e5;
+    margin-top: 64px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
   }
-  .contact-box .addr { color: #555; font-size: 13px; line-height: 2; margin: 8px 0 16px; }
+  .contact-box .addr { color: var(--sub); font-size: 13px; line-height: 2; margin: 8px 0 16px; }
   .contact-box ul { list-style: none; padding: 0; }
-  .contact-box ul li { padding: 4px 0; }
+  .contact-box ul li { padding: 5px 0; }
+  .contact-box ul li a { color: var(--accent); font-weight: 700; text-decoration: none; }
+  .contact-box ul li a:hover { opacity: .65; }
 
   footer.bottom {
-    margin-top: 96px;
+    margin-top: 100px;
     padding-top: 24px;
-    border-top: 1px solid #e5e5e5;
-    color: #777;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
     font-size: 12px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
   }
+  footer.bottom a { letter-spacing: 0.08em; }
 </style>
 </head>
 

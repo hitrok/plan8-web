@@ -158,41 +158,49 @@
 </script>
 
 <style>
+  /* UNFOUND コンセプト：純白 / 黒 / 単一アクセント（出会いの赤 #E85A5A）/ hairline / 余白広め */
+  :root{
+    --bg:#ffffff; --fg:#111111; --sub:#666666; --muted:#9b9b9b;
+    --line:#ececec; --accent:#E85A5A; --accent-deep:#C8443F;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; }
   body {
     font-family: 'M PLUS 1p', "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
     font-weight: 400;
-    font-size: 15px;
-    line-height: 2;
-    color: #111;
-    background: #fff;
+    font-size: 16px;
+    line-height: 1.95;
+    color: var(--fg);
+    background: var(--bg);
     font-feature-settings: "palt";
     -webkit-font-smoothing: antialiased;
   }
   .wrap {
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 56px 24px 96px;
+    padding: 64px 24px 100px;
   }
-  a { color: inherit; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
-  a:hover { opacity: .55; }
-  h1, h2, h3 { font-weight: 700; line-height: 1.7; }
-  h2 { font-size: 17px; margin-bottom: 16px; }
-  h3 { font-size: 15px; margin-top: 28px; margin-bottom: 8px; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: .6; }
+  /* 本文中のリンクのみ下線 */
+  .message a, p.note a { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+
+  h1, h2, h3 { font-weight: 700; color: var(--fg); }
+  h2 { font-size: 23px; line-height: 1.45; letter-spacing: -0.01em; margin-bottom: 18px; }
+  h3 { font-size: 16px; line-height: 1.6; margin-top: 32px; margin-bottom: 8px; }
   p { margin-bottom: 16px; }
   p:last-child { margin-bottom: 0; }
   ul { list-style: none; padding: 0; }
-  ul li { padding: 4px 0; }
-  hr { border: 0; border-top: 1px solid #e5e5e5; margin: 56px 0; }
-  small, .muted { color: #777; font-size: 13px; }
+  ul li { padding: 5px 0; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 64px 0; }
+  small, .muted { color: var(--muted); font-size: 13px; }
 
   /* header */
   header.top {
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-bottom: 64px;
+    margin-bottom: 80px;
   }
   header.top .brand { display: inline-flex; align-items: center; gap: 10px; }
   header.top .brand img { height: 20px; width: auto; display: block; }
@@ -202,62 +210,83 @@
     header.top .brand .name { font-size: 13px; }
   }
 
-  /* section kicker */
+  /* section kicker — Apple 風のカラード・アイブロウ（装飾線なし・ラベル自体をアクセント色に） */
   .kicker {
     display: block;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    color: #777;
-    margin-top: 56px;
-    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-top: 64px;
+    margin-bottom: 14px;
   }
   hr + .kicker { margin-top: 0; }
+
+  /* hero（最初の宣言文を大きく） */
+  p.lead { font-weight: 700; color: var(--fg); }
+  p.hero {
+    font-size: 30px;
+    line-height: 1.5;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 480px) {
+    p.hero { font-size: 23px; }
+    h2 { font-size: 20px; }
+    body { font-size: 15px; }
+  }
+
+  /* CTA（→ / メール）— アクセントに集約 */
+  main ul li a { color: var(--accent); font-weight: 700; }
+  main ul li a:hover { opacity: .65; }
 
   /* dl table */
   dl.kv { margin: 0; }
   dl.kv > div {
     display: grid;
-    grid-template-columns: 110px 1fr;
+    grid-template-columns: 120px 1fr;
     gap: 12px;
-    padding: 6px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
   }
-  dl.kv dt { color: #777; font-size: 13px; }
-  dl.kv dd { font-size: 14px; }
+  dl.kv > div:last-child { border-bottom: 0; }
+  dl.kv dt { color: var(--muted); font-size: 13px; }
+  dl.kv dd { font-size: 15px; }
   @media (max-width: 480px) {
-    dl.kv > div { grid-template-columns: 1fr; gap: 0; padding: 8px 0; }
-    dl.kv dd { margin-bottom: 4px; }
+    dl.kv > div { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+    dl.kv dd { margin-bottom: 2px; }
   }
 
-  /* lead text */
-  p.lead { font-weight: 700; }
-
-  /* portrait — pixel art */
+  /* portrait */
   .portrait {
     width: 100%;
-    max-width: 280px;
+    max-width: 200px;
     height: auto;
     display: block;
     margin: 0 0 28px;
+    border-radius: 10px;
   }
 
   /* CEO message */
-  .message .sig { color: #777; font-size: 13px; margin-top: 24px; }
+  .message p { line-height: 2.05; }
+  .message .sig { color: var(--muted); font-size: 13px; margin-top: 24px; }
 
   /* footer */
   footer.bottom {
-    margin-top: 96px;
+    margin-top: 100px;
     padding-top: 24px;
-    border-top: 1px solid #e5e5e5;
-    color: #777;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
     font-size: 12px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
   }
+  footer.bottom a { letter-spacing: 0.08em; }
 
-  /* ============ WIFI NEON (office presence) ============ */
+  /* ============ NEON（オフィス在席）— アクセント赤に統一 ============ */
   .wifi-neon {
     display: inline-flex;
     align-items: center;
@@ -272,16 +301,16 @@
     width: 20px;
     height: 20px;
     display: block;
-    color: rgba(27,27,31,0.16);
+    color: rgba(17,17,17,0.16);
     transition: color .9s ease, filter .9s ease;
   }
   .wifi-neon.on svg {
-    color: #6FE0FF;
+    color: #F47C7C;
     filter:
       drop-shadow(0 0 1px #ffffff)
-      drop-shadow(0 0 3px #6FE0FF)
-      drop-shadow(0 0 7px #3DB6F5)
-      drop-shadow(0 0 14px rgba(61,182,245,0.6));
+      drop-shadow(0 0 3px #F47C7C)
+      drop-shadow(0 0 7px #E85A5A)
+      drop-shadow(0 0 14px rgba(232,90,90,0.6));
     animation: wifi-flicker 5.4s infinite;
   }
   .wifi-neon.on::before {
@@ -289,7 +318,7 @@
     position: absolute;
     inset: -8px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(61,182,245,0.22) 0%, rgba(61,182,245,0) 70%);
+    background: radial-gradient(circle, rgba(232,90,90,0.22) 0%, rgba(232,90,90,0) 70%);
     pointer-events: none;
     z-index: -1;
     animation: wifi-pulse 3.2s ease-in-out infinite;
@@ -298,15 +327,15 @@
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
       filter:
         drop-shadow(0 0 1px #ffffff)
-        drop-shadow(0 0 3px #6FE0FF)
-        drop-shadow(0 0 7px #3DB6F5)
-        drop-shadow(0 0 14px rgba(61,182,245,0.6));
+        drop-shadow(0 0 3px #F47C7C)
+        drop-shadow(0 0 7px #E85A5A)
+        drop-shadow(0 0 14px rgba(232,90,90,0.6));
       opacity: 1;
     }
     20%, 24%, 55% {
       filter:
         drop-shadow(0 0 0.5px #ffffff)
-        drop-shadow(0 0 1.5px #6FE0FF);
+        drop-shadow(0 0 1.5px #F47C7C);
       opacity: 0.78;
     }
   }
@@ -342,14 +371,14 @@
 
   <span class="kicker">ABOUT US</span>
   <h2>わたしたちが起こすイノベーション</h2>
-  <p class="lead">昨日まで知らなかった誰かを、今日から応援できるようになること。</p>
+  <p class="lead hero">昨日までできなかったことが、今日からできるようになること。</p>
 
   <hr>
 
   <span class="kicker">CONCEPT</span>
   <h2>事業コンセプト</h2>
   <p class="lead">挑戦と応援が循環する仕組みづくり。</p>
-  <p>挑戦する人と応援する人がつながり、想いと支援が循環し続ける仕組みをつくります。</p>
+  <p>挑戦する人と応援する人がつながり、想いと支援が循環し続ける仕組みを創造します。</p>
 
   <hr>
 
@@ -358,15 +387,9 @@
 
   <h3>UNFOUND事業</h3>
   <p>挑戦者の物語を世に届けるフリーペーパーを発行します。</p>
-  <ul>
-    <li><a href="https://forms.gle/Ja8Xbh3mZ13YK1Vm6" target="_blank" rel="noopener noreferrer">お問い合わせ →</a></li>
-  </ul>
 
   <h3 style="margin-top:32px">FDE事業</h3>
   <p>経営者専属のテクノロジー顧問サービス。経営者が思い描くことを爆速で実装し、実行まで落とし込みます。</p>
-  <ul>
-    <li><a href="https://forms.gle/Ja8Xbh3mZ13YK1Vm6" target="_blank" rel="noopener noreferrer">お問い合わせ →</a></li>
-  </ul>
 
   <h3 style="margin-top:32px">自社プロダクト開発</h3>
   <p>つながり・応援・公益性がコンセプトのプロダクトを開発します。</p>
