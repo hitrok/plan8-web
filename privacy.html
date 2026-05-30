@@ -28,7 +28,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C293C9PQJW"></script>
 <script>
@@ -47,7 +47,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; }
   body {
-    font-family: 'M PLUS 1p', "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.95;
@@ -55,6 +55,7 @@
     background: var(--bg);
     font-feature-settings: "palt";
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
   .wrap {
     max-width: 720px;
@@ -66,8 +67,8 @@
   /* 本文中のリンクは下線（長文の可読性） */
   main a { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
   h1, h2 { font-weight: 700; color: var(--fg); }
-  h1 { font-size: 26px; line-height: 1.5; letter-spacing: -0.01em; margin-bottom: 16px; }
-  h2 { font-size: 18px; line-height: 1.6; margin-bottom: 12px; }
+  h1 { font-size: 28px; font-weight: 900; line-height: 1.45; letter-spacing: -0.02em; margin-bottom: 16px; }
+  h2 { font-size: 18px; font-weight: 800; line-height: 1.6; margin-bottom: 12px; }
   p { margin-bottom: 16px; }
   p:last-child { margin-bottom: 0; }
   ul { list-style: disc; padding-left: 1.4em; margin-bottom: 16px; }
@@ -145,7 +146,6 @@
   <header class="top">
     <a class="brand" href="/" aria-label="株式会社plan8 トップへ">
       <img src="assets/plan8-black.png" alt="plan8" width="120">
-      <span class="name">株式会社plan8</span>
     </a>
     <a class="home" href="/">← トップへ</a>
   </header>
