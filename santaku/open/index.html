@@ -40,8 +40,8 @@
       var u=new URLSearchParams(location.search).get('u');
       if(u && /^[A-Za-z0-9_-]{1,64}$/.test(u)){ location.href='santaku://u/'+encodeURIComponent(u); }
     } catch(e){}
-    // TODO: 公開後に App Store の URL を設定
-    var APP_STORE_URL='https://apps.apple.com/app/santaku';
+    // 国指定なし＝閲覧者の地域ストアへ自動転送
+    var APP_STORE_URL='https://apps.apple.com/app/id6776507414';
     document.getElementById('store').href=APP_STORE_URL;
   })();
 </script>

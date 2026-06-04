@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>santaku — 3択でつながるメッセンジャー</title>
 <meta name="description" content="santaku（さんたく）は、返信を3択から選ぶだけの新しいメッセンジャー。打つ時間・考える時間をカット。">
+<meta property="og:title" content="santaku — 返信は、タップだけ。">
+<meta property="og:description" content="返信を3択から選ぶだけの新感覚メッセンジャー。考える時間も、打つ時間もゼロに。App Storeで配信中。">
+<meta property="og:image" content="https://plan8.jp/santaku/ogp.png">
+<meta property="og:url" content="https://plan8.jp/santaku/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   :root { --fg:#111; --sub:#666; --border:#E5E5E5; --accent:#E85A5A; --green:#5AB88F; --gray:#8A8A8E; }
   * { box-sizing:border-box; }
@@ -13,8 +19,8 @@
   .langbar { display:flex; gap:8px; justify-content:flex-end; }
   .langbar button { border:1px solid var(--border); background:#fff; color:var(--sub); border-radius:999px; padding:4px 14px; font-size:13px; cursor:pointer; }
   html[data-lang="ja"] .langbar button.ja, html[data-lang="en"] .langbar button.en { background:var(--fg); color:#fff; border-color:var(--fg); }
-  .logo { width:104px; height:104px; border-radius:24px; margin:24px auto 16px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:7px; box-shadow:0 10px 30px rgba(0,0,0,.08); }
-  .pill { width:58px; height:13px; border-radius:7px; }
+  .appicon { width:108px; height:108px; border-radius:24px; margin:24px auto 16px; display:block; box-shadow:0 12px 30px rgba(0,0,0,.12); }
+  .store { display:inline-flex; align-items:center; gap:8px; background:#111; color:#fff; text-decoration:none; padding:15px 32px; border-radius:999px; font-size:17px; font-weight:800; margin:0 auto 28px; }
   h1 { font-size:34px; margin:0; letter-spacing:1px; }
   .tag { font-size:18px; color:var(--sub); margin:8px 0 28px; }
   .choices { display:flex; flex-direction:column; gap:10px; max-width:300px; margin:0 auto 28px; text-align:left; }
@@ -31,11 +37,7 @@
     <button class="en" onclick="setLang('en')">English</button>
   </div>
 
-  <div class="logo">
-    <div class="pill" style="background:var(--green)"></div>
-    <div class="pill" style="background:var(--gray)"></div>
-    <div class="pill" style="background:var(--accent)"></div>
-  </div>
+  <img class="appicon" src="/santaku/icon.png" alt="santaku">
   <h1>santaku</h1>
   <p class="tag"><span class="ja">返信は、3択から選ぶだけ。</span><span class="en">Reply by tapping one of three.</span></p>
 
@@ -47,6 +49,8 @@
 
   <p class="ja" style="color:var(--sub)">AIがあなたらしい3択を用意。打つ時間・考える時間をカット。</p>
   <p class="en" style="color:var(--sub)">AI prepares three replies in your voice. Less typing, less overthinking.</p>
+
+  <a class="store" href="https://apps.apple.com/app/id6776507414">🍎 <span class="ja">App Storeで入手</span><span class="en">Download on the App Store</span></a>
 
   <div class="links">
     <a href="/santaku/terms.html"><span class="ja">利用規約</span><span class="en">Terms</span></a>
