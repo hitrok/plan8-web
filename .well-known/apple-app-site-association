@@ -16,6 +16,13 @@
         "components": [
           { "/": "/morusu/open*" }
         ]
+      },
+      {
+        "appID": "FK4P798EL8.me.tsuruoka.santaku",
+        "paths": [ "/santaku/open", "/santaku/open/*" ],
+        "components": [
+          { "/": "/santaku/open*" }
+        ]
       }
     ]
   }

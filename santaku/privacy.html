@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja" data-lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プライバシーポリシー | santaku</title>
+<style>
+  :root { --fg:#111; --sub:#666; --border:#E5E5E5; --accent:#E85A5A; --green:#5AB88F; }
+  * { box-sizing: border-box; }
+  body { margin:0; color:var(--fg); font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif; line-height:1.85; }
+  .wrap { max-width:720px; margin:0 auto; padding:32px 20px 96px; }
+  .langbar { display:flex; gap:8px; justify-content:flex-end; margin-bottom:16px; }
+  .langbar button { border:1px solid var(--border); background:#fff; color:var(--sub); border-radius:999px; padding:4px 14px; font-size:13px; cursor:pointer; }
+  html[data-lang="ja"] .langbar button.ja, html[data-lang="en"] .langbar button.en { background:var(--fg); color:#fff; border-color:var(--fg); }
+  h1 { font-size:26px; font-weight:800; margin:0 0 4px; }
+  .meta { color:var(--sub); font-size:13px; margin-bottom:32px; }
+  h2 { font-size:17px; font-weight:700; margin:32px 0 8px; }
+  p, li { font-size:15px; }
+  ul { padding-left:1.2em; }
+  a { color:var(--accent); }
+  .note { background:#FFF6F6; border:1px solid #F3D6D6; border-radius:10px; padding:12px 16px; font-size:14px; }
+  footer { margin-top:48px; color:var(--sub); font-size:13px; border-top:1px solid var(--border); padding-top:16px; }
+  .en { display:none; }
+  html[data-lang="en"] .ja { display:none; }
+  html[data-lang="en"] .en { display:block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="langbar">
+    <button class="ja" onclick="setLang('ja')">日本語</button>
+    <button class="en" onclick="setLang('en')">English</button>
+  </div>
+
+  <div class="ja">
+    <h1>プライバシーポリシー</h1>
+    <div class="meta">最終更新日：2026年6月4日</div>
+
+    <p>株式会社plan8（以下「当社」）は、メッセンジャーアプリ「santaku」（以下「本サービス」）における利用者の個人情報・データの取扱いについて、以下のとおり定めます。</p>
+
+    <h2>1. 取得する情報</h2>
+    <ul>
+      <li>アカウント情報：メールアドレス（または Apple サインインの識別子）、ニックネーム、表示名、プロフィール</li>
+      <li>利用データ：送受信したメッセージ本文、フォロー・ブロック・通報の記録、既読状態</li>
+      <li>端末情報：プッシュ通知トークン、おおまかな利用状況（分析が有効な場合）</li>
+    </ul>
+
+    <h2>2. 生成AIへのメッセージ送信について（重要）</h2>
+    <div class="note">
+      本サービスの「3択返信」機能では、返信候補を生成するために、<strong>会話の直近メッセージ本文が当社サーバーを経由して生成AIの提供者（Anthropic 社「Claude」）に送信されます。</strong>送信は候補生成の目的に限られ、個人を特定する目的では利用しません。なお、会話の流れに沿った候補を出すため、直近の会話内容を生成時のコンテキスト（会話メモリ）として一時的に利用します。生成AIの提供者における取扱いは当該提供者のポリシーに従います。
+    </div>
+
+    <h2>3. 利用状況の分析（PostHog）</h2>
+    <p>本サービスでは、利用状況の分析のために PostHog を利用する場合があります。分析が有効な場合、画面の表示、操作イベント、および利用者識別情報（ニックネーム・言語設定・トーン設定など）が送信されることがあります。分析が無効化されている場合は送信されません。</p>
+
+    <h2>4. 利用目的</h2>
+    <ul>
+      <li>本サービスの提供・運営（メッセージの送受信、返信候補の生成）</li>
+      <li>不正・迷惑行為の防止、通報対応、モデレーション</li>
+      <li>サービスの改善および不具合対応</li>
+    </ul>
+
+    <h2>5. 第三者提供・委託</h2>
+    <p>当社は、法令に基づく場合を除き、利用者の同意なく個人情報を第三者に提供しません。ただし、サービス提供に必要な範囲で、以下の事業者に処理を委託します。</p>
+    <ul>
+      <li>Supabase（認証・データベース・通知基盤）</li>
+      <li>Anthropic（返信候補の生成）</li>
+      <li>PostHog（任意の利用状況分析。無効化されている場合は送信されません）</li>
+    </ul>
+
+    <h2>6. データの保管・削除</h2>
+    <p>データは適切な安全管理のもと保管します。利用者はアプリ内「マイページ」からアカウントを削除でき、削除時にメッセージ・フォロー・ブロック等の関連データは削除されます（通報記録は安全運用のため匿名化のうえ保持する場合があります）。</p>
+
+    <h2>7. 子どもの利用</h2>
+    <p>本サービスは一定年齢以上の利用を想定しています。App Store の年齢制限表示に従ってください。</p>
+
+    <h2>8. お問い合わせ</h2>
+    <p>本ポリシーに関するお問い合わせは下記までご連絡ください。</p>
+  </div>
+
+  <div class="en">
+    <h1>Privacy Policy</h1>
+    <div class="meta">Last updated: June 4, 2026</div>
+
+    <p>plan8 Inc. ("we" or "us") sets out below how we handle users' personal information and data in the messenger app "santaku" (the "Service").</p>
+
+    <h2>1. Information We Collect</h2>
+    <ul>
+      <li>Account information: email address (or your Sign in with Apple identifier), nickname, display name, and profile</li>
+      <li>Usage data: the content of messages you send and receive, follow / block / report records, and read status</li>
+      <li>Device information: push notification token and rough usage information (when analytics is enabled)</li>
+    </ul>
+
+    <h2>2. Sending Messages to Generative AI (Important)</h2>
+    <div class="note">
+      In the Service's "3-choice reply" feature, in order to generate reply options, <strong>the text of recent messages in a conversation is sent through our servers to the generative AI provider (Anthropic's "Claude").</strong> This transmission is limited to the purpose of generating reply options and is not used to identify individuals. To produce options that fit the flow of the conversation, recent conversation content is temporarily used as context (conversation memory) during generation. Handling by the generative AI provider is governed by that provider's policies.
+    </div>
+
+    <h2>3. Usage Analytics (PostHog)</h2>
+    <p>The Service may use PostHog to analyze usage. When analytics is enabled, screen views, interaction events, and user identification information (such as nickname, language setting, and tone setting) may be sent. Nothing is sent when analytics is disabled.</p>
+
+    <h2>4. Purposes of Use</h2>
+    <ul>
+      <li>Providing and operating the Service (sending and receiving messages, generating reply options)</li>
+      <li>Preventing fraud and abuse, handling reports, and moderation</li>
+      <li>Improving the Service and addressing defects</li>
+    </ul>
+
+    <h2>5. Disclosure to Third Parties and Processors</h2>
+    <p>Except as required by law, we do not provide personal information to third parties without the user's consent. However, to the extent necessary to provide the Service, we entrust processing to the following providers.</p>
+    <ul>
+      <li>Supabase (authentication, database, and notification infrastructure)</li>
+      <li>Anthropic (generation of reply options)</li>
+      <li>PostHog (optional usage analytics; nothing is sent when disabled)</li>
+    </ul>
+
+    <h2>6. Data Storage and Deletion</h2>
+    <p>We store data under appropriate security controls. Users can delete their account from "My Page" within the app, and upon deletion related data such as messages, follows, and blocks is deleted (report records may be retained in anonymized form for safe operation).</p>
+
+    <h2>7. Use by Children</h2>
+    <p>The Service is intended for users above a certain age. Please follow the age rating shown on the App Store.</p>
+
+    <h2>8. Contact</h2>
+    <p>For inquiries regarding this policy, please contact us at the address below.</p>
+  </div>
+
+  <footer>
+    <span class="ja">株式会社plan8（大分県由布市）<br>お問い合わせ：<a href="mailto:hideaki@tsuruoka.me">hideaki@tsuruoka.me</a></span>
+    <span class="en">plan8 Inc. (Yufu, Oita, Japan)<br>Contact: <a href="mailto:hideaki@tsuruoka.me">hideaki@tsuruoka.me</a></span>
+  </footer>
+</div>
+<script>
+  function setLang(l){var h=document.documentElement;h.setAttribute('data-lang',l);h.lang=l;try{localStorage.setItem('santaku_lang',l)}catch(e){}}
+  (function(){var s=null;try{s=localStorage.getItem('santaku_lang')}catch(e){}var n=(navigator.language||'ja').slice(0,2);setLang(s|| (n==='ja'?'ja':'en'));})();
+</script>
+</body>
+</html>

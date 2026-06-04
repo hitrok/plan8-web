@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja" data-lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>コミュニティガイドライン | santaku</title>
+<style>
+  :root { --fg:#111; --sub:#666; --border:#E5E5E5; --accent:#E85A5A; --green:#5AB88F; }
+  * { box-sizing: border-box; }
+  body { margin:0; color:var(--fg); font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif; line-height:1.85; }
+  .wrap { max-width:720px; margin:0 auto; padding:32px 20px 96px; }
+  .langbar { display:flex; gap:8px; justify-content:flex-end; margin-bottom:16px; }
+  .langbar button { border:1px solid var(--border); background:#fff; color:var(--sub); border-radius:999px; padding:4px 14px; font-size:13px; cursor:pointer; }
+  html[data-lang="ja"] .langbar button.ja, html[data-lang="en"] .langbar button.en { background:var(--fg); color:#fff; border-color:var(--fg); }
+  h1 { font-size:26px; font-weight:800; margin:0 0 4px; }
+  .meta { color:var(--sub); font-size:13px; margin-bottom:32px; }
+  h2 { font-size:17px; font-weight:700; margin:32px 0 8px; }
+  p, li { font-size:15px; }
+  ul { padding-left:1.2em; }
+  a { color:var(--accent); }
+  .note { background:#FFF6F6; border:1px solid #F3D6D6; border-radius:10px; padding:12px 16px; font-size:14px; }
+  footer { margin-top:48px; color:var(--sub); font-size:13px; border-top:1px solid var(--border); padding-top:16px; }
+  .en { display:none; }
+  html[data-lang="en"] .ja { display:none; }
+  html[data-lang="en"] .en { display:block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="langbar">
+    <button class="ja" onclick="setLang('ja')">日本語</button>
+    <button class="en" onclick="setLang('en')">English</button>
+  </div>
+
+  <div class="ja">
+    <h1>コミュニティガイドライン</h1>
+    <div class="meta">最終更新日：2026年6月4日</div>
+
+    <p>santaku は、気軽な3択でやさしくつながるためのメッセンジャーです。みんなが安心して使えるよう、次のことをお願いします。</p>
+
+    <h2>禁止される行為</h2>
+    <ul>
+      <li>嫌がらせ・いじめ・脅迫・ストーキング</li>
+      <li>差別・ヘイトスピーチ</li>
+      <li>性的に露骨な内容、未成年者に有害な内容</li>
+      <li>暴力的・残虐な内容、自傷や危険行為の助長</li>
+      <li>なりすまし、詐欺、スパム、無断の勧誘・広告</li>
+      <li>他者の個人情報やプライバシーの無断公開</li>
+    </ul>
+
+    <h2>通報とブロック</h2>
+    <p>不快なユーザーやメッセージを見つけたら、チャット画面のメニューから<strong>通報</strong>または<strong>ブロック</strong>できます。ブロックすると、相手はあなたにメッセージを送れなくなります。通報内容は運営が確認し、必要に応じて対応します。</p>
+
+    <h2>3択返信について</h2>
+    <p>返信候補はAIが提案しますが、送る内容を選ぶのはあなたです。送信した内容については各利用者が責任を負います。不適切な候補が表示された場合は通報からお知らせください。</p>
+
+    <h2>違反への対応</h2>
+    <p>ガイドラインに違反した場合、コンテンツの削除やアカウントの利用停止・削除を行うことがあります。当社は不適切な行為に対してゼロトレランスで臨みます。</p>
+  </div>
+
+  <div class="en">
+    <h1>Community Guidelines</h1>
+    <div class="meta">Last updated: June 4, 2026</div>
+
+    <p>santaku is a messenger for connecting kindly through quick, three-choice replies. To keep it a safe place for everyone, we ask that you follow the points below.</p>
+
+    <h2>Prohibited Behavior</h2>
+    <ul>
+      <li>Harassment, bullying, threats, or stalking</li>
+      <li>Discrimination or hate speech</li>
+      <li>Sexually explicit content, or content harmful to minors</li>
+      <li>Violent or graphic content, or encouraging self-harm or dangerous acts</li>
+      <li>Impersonation, fraud, spam, or unsolicited solicitation or advertising</li>
+      <li>Publishing others' personal information or privacy without consent</li>
+    </ul>
+
+    <h2>Reporting and Blocking</h2>
+    <p>If you come across an offensive user or message, you can <strong>report</strong> or <strong>block</strong> them from the menu on the chat screen. Once you block someone, they can no longer send you messages. Reports are reviewed by our team, and we take action as needed.</p>
+
+    <h2>About Three-Choice Replies</h2>
+    <p>The reply suggestions are proposed by AI, but you are the one who chooses what to send. Each user is responsible for the content they send. If an inappropriate suggestion appears, please let us know through the report feature.</p>
+
+    <h2>Enforcement</h2>
+    <p>If these guidelines are violated, we may remove content and suspend or delete the account. We take a zero-tolerance stance toward inappropriate behavior.</p>
+  </div>
+
+  <footer>
+    <span class="ja">株式会社plan8（大分県由布市）<br>お問い合わせ：<a href="mailto:hideaki@tsuruoka.me">hideaki@tsuruoka.me</a></span>
+    <span class="en">plan8 Inc. (Yufu, Oita, Japan)<br>Contact: <a href="mailto:hideaki@tsuruoka.me">hideaki@tsuruoka.me</a></span>
+  </footer>
+</div>
+<script>
+  function setLang(l){var h=document.documentElement;h.setAttribute('data-lang',l);h.lang=l;try{localStorage.setItem('santaku_lang',l)}catch(e){}}
+  (function(){var s=null;try{s=localStorage.getItem('santaku_lang')}catch(e){}var n=(navigator.language||'ja').slice(0,2);setLang(s|| (n==='ja'?'ja':'en'));})();
+</script>
+</body>
+</html>

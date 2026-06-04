@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja" data-lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>santaku — 3択でつながるメッセンジャー</title>
+<meta name="description" content="santaku（さんたく）は、返信を3択から選ぶだけの新しいメッセンジャー。打つ時間・考える時間をカット。">
+<style>
+  :root { --fg:#111; --sub:#666; --border:#E5E5E5; --accent:#E85A5A; --green:#5AB88F; --gray:#8A8A8E; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif; color:var(--fg); }
+  .wrap { max-width:680px; margin:0 auto; padding:48px 20px 80px; text-align:center; }
+  .langbar { display:flex; gap:8px; justify-content:flex-end; }
+  .langbar button { border:1px solid var(--border); background:#fff; color:var(--sub); border-radius:999px; padding:4px 14px; font-size:13px; cursor:pointer; }
+  html[data-lang="ja"] .langbar button.ja, html[data-lang="en"] .langbar button.en { background:var(--fg); color:#fff; border-color:var(--fg); }
+  .logo { width:104px; height:104px; border-radius:24px; margin:24px auto 16px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:7px; box-shadow:0 10px 30px rgba(0,0,0,.08); }
+  .pill { width:58px; height:13px; border-radius:7px; }
+  h1 { font-size:34px; margin:0; letter-spacing:1px; }
+  .tag { font-size:18px; color:var(--sub); margin:8px 0 28px; }
+  .choices { display:flex; flex-direction:column; gap:10px; max-width:300px; margin:0 auto 28px; text-align:left; }
+  .c { border:1px solid var(--border); border-left-width:5px; border-radius:12px; padding:12px 14px; font-size:15px; }
+  .links a { color:var(--accent); margin:0 10px; font-size:14px; }
+  footer { margin-top:48px; color:var(--sub); font-size:13px; }
+  .en { display:none; } html[data-lang="en"] .ja { display:none; } html[data-lang="en"] .en { display:block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="langbar">
+    <button class="ja" onclick="setLang('ja')">日本語</button>
+    <button class="en" onclick="setLang('en')">English</button>
+  </div>
+
+  <div class="logo">
+    <div class="pill" style="background:var(--green)"></div>
+    <div class="pill" style="background:var(--gray)"></div>
+    <div class="pill" style="background:var(--accent)"></div>
+  </div>
+  <h1>santaku</h1>
+  <p class="tag"><span class="ja">返信は、3択から選ぶだけ。</span><span class="en">Reply by tapping one of three.</span></p>
+
+  <div class="choices">
+    <div class="c" style="border-left-color:var(--green)"><span class="ja">いいね、行きたい！</span><span class="en">Sounds great, I'm in!</span></div>
+    <div class="c" style="border-left-color:var(--gray)"><span class="ja">いつにする？</span><span class="en">When works for you?</span></div>
+    <div class="c" style="border-left-color:var(--accent)"><span class="ja">ごめん、今回はパスで🙏</span><span class="en">Sorry, I'll pass this time 🙏</span></div>
+  </div>
+
+  <p class="ja" style="color:var(--sub)">AIがあなたらしい3択を用意。打つ時間・考える時間をカット。</p>
+  <p class="en" style="color:var(--sub)">AI prepares three replies in your voice. Less typing, less overthinking.</p>
+
+  <div class="links">
+    <a href="/santaku/terms.html"><span class="ja">利用規約</span><span class="en">Terms</span></a>
+    <a href="/santaku/privacy.html"><span class="ja">プライバシー</span><span class="en">Privacy</span></a>
+    <a href="/santaku/community.html"><span class="ja">ガイドライン</span><span class="en">Guidelines</span></a>
+  </div>
+
+  <footer>
+    <span class="ja">株式会社plan8（大分県由布市）</span>
+    <span class="en">plan8 Inc. (Yufu, Oita, Japan)</span>
+  </footer>
+</div>
+<script>
+  function setLang(l){var h=document.documentElement;h.setAttribute('data-lang',l);h.lang=l;try{localStorage.setItem('santaku_lang',l)}catch(e){}}
+  (function(){var s=null;try{s=localStorage.getItem('santaku_lang')}catch(e){}var n=(navigator.language||'ja').slice(0,2);setLang(s||(n==='ja'?'ja':'en'));})();
+</script>
+</body>
+</html>
