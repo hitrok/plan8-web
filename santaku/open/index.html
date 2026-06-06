@@ -9,8 +9,7 @@
   body { margin:0; font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif; color:var(--fg);
          min-height:100vh; display:flex; align-items:center; justify-content:center; background:#fff; }
   .card { text-align:center; padding:40px 24px; max-width:380px; }
-  .logo { width:84px; height:84px; border-radius:20px; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; gap:5px; box-shadow:0 8px 24px rgba(0,0,0,.08); }
-  .pill { width:46px; height:11px; border-radius:6px; }
+  .logo { width:84px; height:84px; border-radius:20px; margin:0 auto 20px; display:block; object-fit:cover; box-shadow:0 8px 24px rgba(0,0,0,.08); }
   h1 { font-size:22px; margin:0 0 6px; }
   p { color:var(--sub); font-size:15px; }
   .btn { display:inline-block; margin-top:18px; background:var(--fg); color:#fff; text-decoration:none;
@@ -20,11 +19,7 @@
 </head>
 <body>
 <div class="card">
-  <div class="logo">
-    <div class="pill" style="background:#5AB88F"></div>
-    <div class="pill" style="background:#8A8A8E"></div>
-    <div class="pill" style="background:#E85A5A"></div>
-  </div>
+  <img class="logo" src="/santaku/icon.png?v=2" alt="santaku">
   <h1>santaku</h1>
   <p class="ja">アプリで開いています…<br>開かないときは santaku アプリをインストールしてください。</p>
   <p class="en">Opening in the app…<br>If it doesn't open, please install the santaku app.</p>
